@@ -41,11 +41,15 @@ The office gives the investigation a recurring human frame. Its characters may h
 
 ## Study the evidence
 
-Canonical evidence images live with the case on GitHub and appear on a simple player-facing case page.
+Canonical evidence images are generated, inspected and locked by the creator before publication. They live with the case on GitHub and appear on a simple player-facing case page.
+
+> **If an image can change the solution, generate and verify it before play.**
 
 When ChatGPT says **OPEN EVIDENCE E-02**, the player opens that image, studies it and reports what they noticed. The Casefile already contains the hidden evidence registry, so ChatGPT can judge the observation without having to re-analyze every image itself.
 
 Direct image upload and AI image analysis may still be offered as optional enhancements. They are not required for the normal V0 loop.
+
+Runtime image generation is reserved for noncanonical material such as office portraits, mood pieces and post-case rewards. A live-generated image may decorate the experience; it may not become evidence merely because it appeared during play.
 
 ## A fair mystery
 
@@ -78,7 +82,7 @@ Load the creator guide into your AI and say:
 
 > **Help me make a case.**
 
-The AI can help turn an idea into locked canon, suspects, timelines, interrogation logic, visual puzzles, evidence prompts, failure conditions and a portable Casefile. Conceptually, it is a very lightweight RPG Maker for mysteries.
+The AI can help turn an idea into locked canon, suspects, timelines, interrogation logic, visual puzzles, creator-time evidence prompts, failure conditions and a portable Casefile. Conceptually, it is a very lightweight RPG Maker for mysteries.
 
 **The creator authors reality. The AI helps formalize it. The player authors the investigation.**
 
@@ -136,4 +140,3 @@ Professional knowledge is welcome. Internet vigilantism is not.
 ---
 
 **Make authorship powerful. Make play effortless.**
-
