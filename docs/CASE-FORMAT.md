@@ -63,27 +63,13 @@ Do not ask the player to reconfigure fields already established here.
 
 ## Sealed GM packet
 
-The sealed packet contains immutable case-specific CANON:
+The sealed packet contains immutable case-specific CANON: true explanation, timeline, motive/means/opportunity, suspect and witness state, evidence registry, state transitions, success/failure conditions, hints and debrief hooks.
 
-- true explanation and responsible parties;
-- timeline;
-- motive, means and opportunity;
-- victim status if relevant;
-- suspect/witness knowledge and lies;
-- genuine clues and red-herring explanations;
-- evidence registry;
-- state transitions and breakpoints;
-- success and failure conditions;
-- hints;
-- debrief hooks / Player Moments.
-
-Base64 worked as spoiler-resistant transport in Alpha A01. It is obfuscation, not security, and the stable representation remains subject to testing.
-
-Do not place creator-time image-generation prompts in the release packet for runtime execution.
+Base64 worked as spoiler-resistant transport in Alpha A01. It is obfuscation, not security, and the stable representation remains subject to testing. Do not place creator-time image-generation prompts in the release packet for runtime execution.
 
 ## Evidence registry
 
-Each evidence item should minimally define:
+Each canonical evidence item should define enough for the runtime to identify the asset, gate it and judge natural-language observations:
 
 ~~~text
 EVIDENCE ID:
@@ -93,38 +79,67 @@ UNLOCK CONDITION:
 CANONICAL CONTENTS:
 ACCEPTED OBSERVATIONS:
 PERMITTED DEDUCTIONS:
-MISLEADING APPEARANCES:
-ACCESSIBILITY FALLBACK:
+MISLEADING APPEARANCES: optional
+ACCESSIBILITY FALLBACK: recommended
 VERIFICATION STATUS:
 RUNTIME GENERATION: Prohibited for canonical evidence
 ~~~
 
-The player is the primary viewer. ChatGPT judges their report against the registry.
+Use canonical two-digit evidence IDs such as `E-01`, `E-02`, `E-03` consistently in the registry and all cross-references.
 
-Accepted observations are semantic, not passwords. Record likely paraphrases where they help, but if a player's report is too vague to establish the clue, ask a natural clarifying question rather than silently granting or denying it.
+The player is the primary viewer. ChatGPT judges their report against the registry. Accepted observations are semantic, not passwords. If a report is too vague to establish a clue, ask a natural clarifying question rather than silently granting or denying it.
 
-If the player uploads an image, AI analysis may discuss visible details but cannot override creator-verified CANON.
+`ACCESSIBILITY FALLBACK` is recommended for every evidence item but is not currently a launch-blocking requirement. It should provide an equivalent text investigation route without stating the deduction or culprit for the player. A fundamentally visual puzzle may instead be labeled honestly as such.
 
-Derived evidence required for a deduction—crop, zoom, scan, comparison or reconstruction—must also exist and be verified before publication.
+If the player uploads an image, AI analysis may discuss visible details but cannot override creator-verified CANON. Any derived evidence required for a deduction—crop, zoom, scan, comparison or reconstruction—must also exist and be verified before publication.
 
-## Suspect and witness packet
+## Suspect and witness packets
 
-Important people define only what the runtime needs:
+V0 does **not** require every suspect to have an identical field set. Innocent bystanders do not need a culprit-sized interrogation dossier.
+
+The runtime does need an explicit information boundary. The recommended packet pattern is:
 
 ~~~text
-IDENTITY / ROLE:
-KNOWS:
-BELIEVES:
-CLAIMS:
-HIDES:
-LIES ABOUT:
-DOES NOT KNOW:
-PRESSURE / CONTRADICTIONS:
-BREAKPOINT:
-AFTER BREAKPOINT:
+NAME / ROLE:
+STATUS: hidden canonical truth
+PUBLIC: safe to present before investigation
+PRIVATE: hidden canonical facts used by the runtime
+DISCLOSURES: optional gated facts with explicit reveal conditions
+INTERROGATION: optional state packet
 ~~~
 
-Dialogue wording is FLEX. Knowledge and breakpoint logic are CANON.
+A JSON-shaped example:
+
+~~~json
+{
+  "name": "Nolan Pierce",
+  "role": "night security supervisor",
+  "status": "culprit",
+  "public": "Claims he remained at the east stairwell.",
+  "private": {
+    "appearance": "Pale vertical scar through right eyebrow.",
+    "boots": "Issued hexagonal-tread security boots."
+  },
+  "disclosures": [
+    {
+      "id": "scar_match",
+      "fact": "Nolan has the matching eyebrow scar.",
+      "reveal_when": "after E-02 if the player notices the scar or asks for suspect comparison"
+    }
+  ],
+  "interrogation": {
+    "claims": [],
+    "lies": [],
+    "pressure": [],
+    "breakpoint": "...",
+    "after_breakpoint": "..."
+  }
+}
+~~~
+
+`PUBLIC` is safe to narrate when the suspect is introduced. `PRIVATE` does not become player knowledge merely because it exists in the capsule. `DISCLOSURES` make important gated revelations explicit instead of relying on vague runtime prose. The disclosure may point to a private field or simply contain the fact to reveal.
+
+Interrogation packets may contain only the state that person actually needs: knows, believes, claims, lies, pressure/contradictions, breakpoint and after-breakpoint behavior. Dialogue wording is FLEX; knowledge, disclosure gates and breakpoint logic are CANON.
 
 ## State and commitment
 
@@ -134,15 +149,13 @@ A theory is not automatically a formal accusation. Clarify only genuinely ambigu
 
 ## Player Moments
 
-Track only a small dynamic set useful for specific debrief recognition, such as first useful observation, optional clue, memorable wrong theory, exposed contradiction, difficult decision and final accusation.
-
-Do not store an uncontrolled biography.
+Track only a small dynamic set useful for specific debrief recognition, such as first useful observation, optional clue, memorable wrong theory, exposed contradiction, difficult decision and final accusation. Do not store an uncontrolled biography.
 
 ## Voice
 
 Text interrogation is the V0 baseline. Voice interrogation is case-specific and experimental.
 
-When a post-case Voice debrief is available, the case defines the character and debrief intent. The runtime uses actual Player Moments to create a compact portable handoff. The tested workflow is: copy the complete handoff, start Voice Mode, then paste/send that block once Voice is active. The debrief must also work in text.
+When a post-case Voice debrief is available, the runtime uses actual Player Moments to create a compact portable handoff. The tested workflow is: copy the complete handoff, start Voice Mode, then paste/send that block once Voice is active. The debrief must also work in text.
 
 See [Voice and Interrogation](VOICE-AND-INTERROGATION.md).
 
