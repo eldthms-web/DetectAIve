@@ -66,6 +66,7 @@ If that works, DetectAIve is not one detective game. It is a format ordinary peo
 - [Voice and interrogation guide](docs/VOICE-AND-INTERROGATION.md)
 - [Office and debrief system](docs/OFFICE-AND-DEBRIEF.md)
 - [Community and distribution plan](docs/COMMUNITY-PLAN.md)
+- [Mobile-first case delivery](docs/MOBILE-DISTRIBUTION.md)
 - [Terminology](docs/GLOSSARY.md)
 - [Roadmap](ROADMAP.md)
 - [Decision log](DECISIONS.md)
