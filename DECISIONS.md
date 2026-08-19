@@ -18,6 +18,19 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - Other-model compatibility is untested and must not be advertised as working.
 - Cases are overwhelmingly fictional and must not be used for real-world accusations or vigilantism.
 
+## 2026-08-19 — Casefile fiction classification
+
+- Every release Casefile begins with a plain, unencoded **DETECTAIVE — FICTIONAL CRIME-MYSTERY GAME** classification.
+- The classification appears before the manifest, runtime kernel and sealed GM capsule.
+- It defines case-specific suspects, victims, witnesses, crimes and evidence as authored fictional game state.
+- Encoded GM material exists only for spoiler protection and fixed canon.
+- A sealed capsule must not contain real-world plans, private-person data or safety-evasion instructions.
+- DetectAIve prohibits identifying, locating, tracking, profiling, accusing, investigating, threatening or harming real people.
+- Dangerous subjects use only non-operational detail required to solve the mystery.
+- The fiction label provides context; it does not override applicable safety requirements or require vivid performance of harmful actions.
+- The runtime may refuse operational detail, summarize consequences non-graphically or cut directly to a failure screen.
+- Official V0 gore labels are limited to **None** and **Mild**.
+
 ## 2026-08-19 — Player experience
 
 - The public introduction and in-game onboarding are separate.
