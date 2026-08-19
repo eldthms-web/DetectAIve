@@ -67,7 +67,7 @@ The player receives only the compact Casefile and case page, not the full author
 |---|---|
 | Text | The game, choices, investigation and interrogation |
 | Read Aloud | Optional narration of text responses |
-| Images | Canonical evidence studied by the player |
+| Images | Pregenerated, creator-verified canonical evidence studied by the player |
 | Live Voice | Primarily the optional earned post-case debrief |
 
 Voice interrogation remains an experimental extension, not a launch dependency.
@@ -124,6 +124,31 @@ Normal loop:
 5. ChatGPT resolves it against the registry and current case state.
 
 The AI does not need to visually ingest every image. Direct upload and AI image analysis are optional enhancements, not prerequisites.
+
+## Canonical evidence generation boundary
+
+> **If an image can change the solution, generate and verify it before play.**
+
+The first alpha established that a correct evidence prompt inside the sealed GM capsule can still produce the wrong image at runtime. Recent office descriptions, character aesthetics and earlier generated art may contaminate the image-generation context.
+
+Therefore V0 must not ask ChatGPT to generate canonical evidence during the active case.
+
+- Canonical evidence is generated during authoring.
+- The creator verifies the final pixels against the evidence registry.
+- The verified asset is stored and versioned with the case.
+- The runtime unlocks the existing asset by evidence ID.
+- Generation prompts used to create it remain in creator source, not in the release capsule merely for runtime execution.
+
+Runtime image generation may be used for:
+
+- office portraits and splash art;
+- atmospheric or transitional illustrations;
+- post-case reward images;
+- explicitly noncanonical visual jokes or souvenirs.
+
+Every runtime-generated image defaults to **noncanonical cosmetic art**. It cannot add clues, change evidence meaning or unlock a deduction.
+
+Any derived image needed for a puzzle—a crop, enhancement, reconstruction or comparison—must also be created and verified before publication. A runtime transformation may be offered for amusement or accessibility experimentation, but it cannot become the sole source of a solution-relevant fact.
 
 ## Source case versus release Casefile
 
@@ -209,4 +234,3 @@ The state machine is backstage. The player should experience scenes, not status 
 - **ROADMAP:** priority control.
 
 Brainstorming is evaluated and integrated where it belongs rather than appended chronologically to the specification.
-
