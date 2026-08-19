@@ -2,11 +2,30 @@
 
 **Status:** structural draft for playtesting. This is not yet a stable standard.
 
-A Casefile is the portable package a player gives ChatGPT.
+A Casefile is the portable cartridge a player pastes into ChatGPT. It is not the complete creator repository.
+
+## Canonical case folder
+
+GitHub is the preferred home for the editable case source and evidence assets:
+
+~~~text
+cases/DA-001-case-name/
+├── README.md
+├── casefile.txt
+├── creator-notes.md
+├── evidence/
+│   ├── E-01.jpg
+│   ├── E-02.jpg
+│   └── E-03.jpg
+└── page/
+    └── index.html
+~~~
+
+The player-facing page may be published with GitHub Pages. The player should receive a direct link rather than instructions for navigating branches or folders.
 
 ## Manifest
 
-Every published case should begin with compact spoiler-free metadata.
+Every published case begins with compact spoiler-free metadata.
 
 ~~~text
 CASE ID: DA-001
@@ -15,25 +34,38 @@ VERSION: 0.1
 CREATOR: Name
 STATUS: Playtest
 FORMAT VERSION: DetectAIve 0.1
+MODE: Locked Mystery
 DIFFICULTY: Medium
 ESTIMATED TIME: 8–12 minutes
 EVIDENCE IMAGES: 3
-VOICE: Optional interrogation
+PLAYER INTERFACE: Text + optional Read Aloud
+EVIDENCE DELIVERY: GitHub Pages
+VOICE DEBRIEF: Available
+VOICE INTERROGATION: None
 OFFICE COMPATIBILITY: Universal
 STRUCTURE: Standalone
 CONTENT: No gore
 CHATGPT TESTING: Untested
 ~~~
 
-Useful fields may later include genre, accessibility notes, content warnings, official/community status and sequel links.
+The case listing carries configuration so the runtime does not ask for it again.
 
 ## Required layers
 
 ### Runtime kernel
 
-Compact instructions governing setup, hidden information, natural-language play, state changes, evidence handling and debrief behavior.
+Compact instructions governing:
 
-Every release Casefile must carry the runtime behavior it needs. The player should not paste a separate engine prompt.
+- the Read Aloud tip;
+- one-question office setup;
+- hidden information;
+- natural-language play;
+- state changes;
+- evidence handling;
+- allowed improvisation;
+- resolution, failure and debrief behavior.
+
+Every release Casefile carries the runtime behavior it needs. The player does not paste a separate engine manual.
 
 ### Sealed GM packet
 
@@ -52,7 +84,7 @@ Contains the immutable CANON:
 - consequences;
 - endings.
 
-The exact spoiler-resistant representation is unresolved and must be tested.
+The exact spoiler-resistant representation remains subject to playtesting. Obfuscation is spoiler resistance, not security.
 
 ### Player-facing opening
 
@@ -66,16 +98,27 @@ Contains only information legitimately available before play:
 
 ### Evidence registry
 
-Each evidence item should have:
+Each evidence item should define:
 
-- stable ID;
-- file or asset reference;
-- unlock condition;
-- canonical contents;
-- permitted deductions;
-- misleading appearances;
-- derived assets, if any;
-- verification status.
+~~~text
+EVIDENCE ID:
+TITLE:
+SOURCE PATH:
+PLAYER URL:
+UNLOCK CONDITION:
+CANONICAL CONTENTS:
+ACCEPTED OBSERVATIONS:
+PERMITTED DEDUCTIONS:
+MISLEADING APPEARANCES:
+DERIVED ASSETS:
+ACCESSIBILITY FALLBACK:
+DIRECT AI ANALYSIS: Optional / Supported / Not tested
+VERIFICATION STATUS:
+~~~
+
+The canonical contents let ChatGPT judge the player's report without visually ingesting the image. The player studies the original asset on the case page.
+
+If the player uploads the image, ChatGPT may discuss visible details, but image analysis must not overwrite the creator-verified registry or manufacture facts absent from CANON.
 
 Generated zooms or reconstructions may clarify captured information. They may not invent new information.
 
@@ -88,7 +131,7 @@ Each clue has a function:
 - **OPTIONAL** — rewards unusual attention;
 - **RED HERRING** — misleading but honestly explainable;
 - **DECORATION** — atmospheric and non-evidentiary;
-- **ACCIDENTAL ARTIFACT** — a generation mistake that is explicitly noncanonical.
+- **ACCIDENTAL ARTIFACT** — a generation mistake explicitly declared noncanonical.
 
 Each required deduction must be supported by evidence the player can actually receive.
 
@@ -107,9 +150,11 @@ Important NPCs define:
 - collapse condition;
 - post-collapse truth or action.
 
+Text interrogation is the V0 baseline. Voice performance is optional and may not change the underlying state.
+
 ### State transitions
 
-The case identifies which discoveries or choices permit movement into interrogation, accusation, resolution and optional follow-up states.
+The case identifies which discoveries or choices permit movement into interrogation, accusation, resolution, failure and optional follow-up states.
 
 The runtime must not begin a debrief while the investigation remains unresolved.
 
@@ -117,33 +162,36 @@ The runtime must not begin a debrief while the investigation remains unresolved.
 
 Track a very small dynamic set:
 
-- FIRST_USEFUL_OBSERVATION;
-- OPTIONAL_CLUE_FOUND;
-- MEMORABLE_WRONG_THEORY;
-- CONTRADICTION_EXPOSED;
-- DIFFICULT_DECISION;
-- MISSED_CLUE_WORTH_CALLBACK.
+- `FIRST_USEFUL_OBSERVATION`;
+- `OPTIONAL_CLUE_FOUND`;
+- `MEMORABLE_WRONG_THEORY`;
+- `CONTRADICTION_EXPOSED`;
+- `DIFFICULT_DECISION`;
+- `FINAL_ACCUSATION`;
+- `MISSED_CLUE_WORTH_CALLBACK`.
 
 These are debrief hooks, not persistent psychological profiling.
 
-### Voice Cards
+### Voice debrief card
 
-Optional Voice Cards specify:
+When offered, the V0 Voice Card should specify:
 
 - character;
 - scene purpose;
-- known state;
-- desired opening line or intent;
+- relevant Player Moments;
+- opening intent;
 - one question per turn;
 - stopping point;
 - allowed reactions after the player answers;
-- exit condition.
+- closing line or condition.
 
-Control instructions must remain separate from spoken dialogue.
+Non-spoken control instructions remain separate from dialogue.
+
+Voice interrogation cards use the same structure but are experimental in V0.
 
 ### Failure packet
 
-A case should distinguish:
+A case distinguishes:
 
 - nonterminal consequences;
 - terminal failure triggers;
@@ -153,7 +201,7 @@ A case should distinguish:
 - custom failure lines or epilogues;
 - postmortem behavior.
 
-The runtime may improvise failure presentation within these boundaries. It may not invent a terminal cause merely because a funny screen is available.
+The runtime may improvise presentation within these boundaries. It may not invent a terminal cause merely because a funny screen is available.
 
 See [Failure and Caseline System](FAILURE-AND-CASELINE.md).
 
@@ -169,16 +217,9 @@ The case defines:
 - debrief hooks;
 - optional continuation unlock.
 
-## Authoring source
+## Release rule
 
-A creator may maintain a case as:
+The creator source may be extensive. The release Casefile must be obvious, versioned and compact.
 
-~~~text
-cases/DA-001-case-name/
-├── README.md
-├── CASEFILE.md
-├── CREATOR-NOTES.md
-└── evidence/
-~~~
+Do not place creator instructions, unused dialogue libraries, image-generation prompts or the full project specification inside the player's Casefile.
 
-The release package presented to the player must remain obvious and versioned.
