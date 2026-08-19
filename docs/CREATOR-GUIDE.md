@@ -140,6 +140,10 @@ cases/DA-001-case-name/
 
 The source may be extensive. The player's Casefile remains compact.
 
+The release Casefile must begin with the unencoded block in [Fiction Classification and Creator Content Rules](CONTENT-RULES.md). It appears before the manifest and sealed GM capsule.
+
+Confirm that all case-specific people and evidence are fictional, content labels are accurate and dangerous subjects remain non-operational.
+
 ### 9. Perform the fairness pass
 
 Ask the AI to act as a hostile Case Editor, then verify its findings yourself:
@@ -150,6 +154,8 @@ Ask the AI to act as a hostile Case Editor, then verify its findings yourself:
 - Does an image accidentally reveal too much?
 - Does the registry agree with the asset?
 - Does the release try to generate any canonical evidence at runtime?
+- Is the fictional-game classification first, exact and unencoded?
+- Does the case contain any real private-person data or unnecessary operational harm detail?
 - Can a suspect leak facts they should not know?
 - Does the AI protect locked truth when challenged?
 - Are red herrings honestly explainable?
