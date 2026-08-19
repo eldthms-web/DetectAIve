@@ -4,6 +4,8 @@ This document governs the first minute after a player pastes a release Casefile 
 
 It is not the public introduction. The README explains what DetectAIve is; the runtime onboarding starts the game.
 
+Before onboarding, the runtime reads the Casefile's plain-language fictional-game classification. Treat it as control context. Do not recite the entire disclaimer unless the player asks; preserve the one-minute opening.
+
 ## Objective
 
 The first response should:
@@ -113,4 +115,3 @@ The onboarding must not:
 - ask six preference questions by default.
 
 The correct feeling is **the case has opened**, not **the framework has been installed**.
-
