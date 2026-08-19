@@ -68,9 +68,23 @@ Motive, means and opportunity are a useful structure, but not every case must us
 
 Decide what the player must actually notice. Then create or commission the image and verify that the intended detail really exists.
 
-The AI can help write generation prompts, propose decoys, compare versions and draft the evidence registry. The creator must inspect the final asset.
+The AI can help write generation prompts, propose decoys, compare versions and draft the evidence registry. Generation happens during authoring. The creator must inspect the final asset.
+
+> **If an image can change the solution, generate and verify it before play.**
+
+Do not ship an evidence prompt and expect the active game conversation to generate the canonical asset. Conversation imagery can contaminate runtime generation even when the prompt itself is correct.
+
+Once an evidence image passes inspection:
+
+- give it a stable evidence ID;
+- store it in the case's `evidence/` folder;
+- record its version or hash where practical;
+- update the registry to match the actual pixels;
+- treat later changes as a versioned case correction.
 
 Store verified images with the case in GitHub.
+
+Keep generation prompts in creator notes. The release Casefile needs the canonical contents, accepted observations and asset link—not a prompt whose job is to recreate the image live.
 
 ### 5. Build people, not answer dispensers
 
@@ -135,6 +149,7 @@ Ask the AI to act as a hostile Case Editor, then verify its findings yourself:
 - Can the player receive every required clue?
 - Does an image accidentally reveal too much?
 - Does the registry agree with the asset?
+- Does the release try to generate any canonical evidence at runtime?
 - Can a suspect leak facts they should not know?
 - Does the AI protect locked truth when challenged?
 - Are red herrings honestly explainable?
@@ -170,6 +185,7 @@ The AI may create:
 - transitions between authored beats;
 - failure-screen wording within defined causes;
 - personalized debrief dialogue from recorded Player Moments.
+- noncanonical office, atmosphere or reward art when requested.
 
 The AI may not create:
 
@@ -180,6 +196,7 @@ The AI may not create:
 - an unearned confession;
 - a terminal failure merely because the player surprised it;
 - a post-case memory that did not occur.
+- canonical or solution-relevant evidence generated during active play.
 
 ## Keep creation and play separate
 
@@ -192,4 +209,3 @@ A player receives only:
 - the canonical evidence it unlocks.
 
 The complicated part belongs to us, not to them.
-
