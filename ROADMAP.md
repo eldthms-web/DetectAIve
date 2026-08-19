@@ -30,6 +30,8 @@ Required before public launch:
 - Casefile data-budget enforcement;
 - spoiler-safe transport for hidden GM state;
 - fictional-only safety boundary;
+- required unencoded Casefile classification;
+- creator content rules and publication check;
 - subreddit posting standard;
 - AI-assisted creator guide;
 - at least three complete micro-cases;
