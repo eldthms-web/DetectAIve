@@ -17,6 +17,8 @@ Required before public launch:
 - stable case IDs and versions;
 - GitHub case-folder convention;
 - canonical evidence stored with each case;
+- canonical evidence generated and creator-verified before publication;
+- runtime generation prohibited for solution-relevant evidence;
 - one mobile-friendly GitHub Pages case page;
 - copy, raw-text and download fallbacks;
 - player-observed evidence loop that does not require AI image ingestion;
@@ -69,11 +71,13 @@ Only after the core format works:
 
 The Casefile must give ChatGPT immutable hidden truth without placing an easily read solution directly under the player's copy instructions.
 
-This needs practical testing. Obfuscation is spoiler resistance, not security.
+The first alpha successfully transported and decoded a Base64 GM capsule. This still needs cross-interface and spoiler-resistance testing. Obfuscation is spoiler resistance, not security.
 
 ### Evidence-page handoff
 
 A stranger must be able to move between ChatGPT and the numbered evidence page without confusion on desktop, Android and iPhone. Direct upload is optional; the registry-driven observation loop is the baseline.
+
+The first alpha eliminated runtime generation as an evidence-delivery option after the image generator repeatedly substituted recent office imagery for the forensic prompt. The remaining experiment is the pregenerated asset handoff.
 
 ### Runtime discipline
 
@@ -82,4 +86,3 @@ ChatGPT must preserve locked canon, allow reasonable improvisation, recognize pa
 ### Office portability
 
 The same case must remain fair with different office casts or no companion at all. Character flavor may change; evidence and solution may not.
-
