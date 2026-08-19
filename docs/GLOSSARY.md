@@ -1,12 +1,14 @@
 # DetectAIve Glossary
 
-**DetectAIve** — The format and community.
+**DetectAIve** — The format, creator system and community.
 
-**Casefile** — A portable playable mystery package.
+**Casefile** — The compact portable mystery cartridge pasted into ChatGPT.
 
-**Case Source** — The creator's editable files, notes and evidence assets.
+**Case Source** — The creator's editable files, notes, prompts and evidence assets.
 
-**Release Casefile** — The versioned package given to players.
+**Release Casefile** — The versioned player payload separated from creator material.
+
+**Play Case Page** — A mobile-friendly static page containing the case card, copy action and numbered evidence assets.
 
 **Office** — The player's recurring investigative cast and framing context.
 
@@ -22,11 +24,17 @@
 
 **CAPABILITIES** — Rules governing unusual office skills, equipment or powers.
 
-**Canonical Evidence** — An immutable original evidence asset.
+**Read Aloud** — Optional playback of the authoritative text response. It is not Live Voice.
+
+**Live Voice** — A conversational spoken-performance layer, used primarily for V0 post-case debriefs.
+
+**Canonical Evidence** — An immutable original evidence asset stored with the case.
 
 **Derived Evidence** — A creator-approved crop, zoom, scan or reconstruction based on canonical evidence.
 
-**Evidence Registry** — The backstage list of evidence assets, meanings and unlock conditions.
+**Evidence Registry** — The hidden list of evidence contents, meanings, accepted observations and unlock conditions.
+
+**Evidence ID** — A stable label such as E-01 used by the Casefile and player page.
 
 **Required Clue** — Evidence necessary for the intended solution.
 
@@ -46,15 +54,17 @@
 
 **Breakpoint** — Evidence or contradiction that changes an interrogation state.
 
-**Voice Card** — Short instructions for a performed conversational scene.
+**Voice Card** — Short non-spoken instructions for a performed conversational scene.
 
-**Player Moments** — A tiny set of play events retained for the debrief.
+**Player Moments** — A tiny set of actual play events retained for the debrief.
 
 **Debrief** — Optional post-case interaction based on Player Moments.
 
 **Reward Image** — Optional post-case visual payoff.
 
-**Manifest** — Spoiler-free case metadata including ID, version, difficulty and content information.
+**Manifest** — Spoiler-free case metadata including ID, version, difficulty, content and interaction information.
+
+**Creator Guide** — The workshop instructions an AI and human use to build a case. It is not part of the player's payload.
 
 **Official Case** — A case published as part of the core DetectAIve project.
 
@@ -73,3 +83,4 @@
 **Postmortem** — An optional explanation requested after failure. It does not automatically reveal the full solution.
 
 **Data Budget** — The reliability target limiting how much material enters one playable Casefile.
+
