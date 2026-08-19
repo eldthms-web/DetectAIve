@@ -43,6 +43,24 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - Do not use generic praise spam, hearts, affection meters or compulsory romance.
 - Professional respect, friendship, mentorship, rivalry, flirtation and comedy may all use the same debrief system.
 
+## 2026-08-19 — Failure and Caseline
+
+- The first run is treated as consequential.
+- The game does not volunteer retcon, rewind or override exploits.
+- Creative off-path investigation is not failure.
+- Catastrophic committed actions may terminate the run.
+- Preferred reality-breaking phrase: **DESYNCHRONIZED FROM THE CASELINE**.
+- Failure presentation may use deadpan text, occasional terminal ASCII or rare emoji overload.
+- The runtime may improvise presentation, but not the logical cause of failure.
+- A failed run does not automatically reveal the solution.
+
+## 2026-08-19 — Data separation
+
+- Repository documentation is not pasted into every case.
+- A micro-case should normally target roughly 5,000–10,000 tokens.
+- A Casefile above 15,000 tokens requires deliberate compression review.
+- Large trope libraries, creator commentary and archives remain outside the playable payload.
+
 ## Provisional distribution direction
 
 - GitHub is the source of truth and version archive.
