@@ -114,7 +114,15 @@ RESOLVED
 DEBRIEF
   ↓
 FOLLOW-UP UNLOCKED (optional)
+
+Any active investigative state may also transition to:
+
+FAILED
+  ↓
+POSTMORTEM (only if requested)
 ~~~
+
+FAILED is terminal for the active run. It does not automatically reveal the solution.
 
 The state machine is backstage. The player should experience scenes, not status codes.
 
