@@ -132,9 +132,10 @@ Optional rewards may include:
 
 Avoid hearts, currencies and affection levels.
 
+Office portraits, splash art and reward images may be generated at runtime because they are cosmetic. They default to noncanonical and cannot introduce evidence, alter the solution or make an unexpected pictured detail into a clue.
+
 ## Long-term progression
 
 If persistence proves workable, the office may gradually accumulate artifacts from solved cases.
 
 This is a later feature. The first version only needs a memorable debrief that accurately reflects what the player did.
-
