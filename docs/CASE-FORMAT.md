@@ -4,6 +4,14 @@
 
 A Casefile is the portable cartridge a player pastes into ChatGPT. It is not the complete creator repository.
 
+## Required opening classification
+
+Every release Casefile begins with the exact plain-language block in [Fiction Classification and Creator Content Rules](CONTENT-RULES.md).
+
+It must be the first unencoded text the runtime receives. Place it before the manifest, runtime kernel and sealed GM capsule.
+
+The classification identifies the material as fictional game state and prohibits real-person investigation, dangerous operational instruction and safety evasion. It does not need to be recited to the player during onboarding.
+
 ## Canonical case folder
 
 GitHub is the preferred home for the editable case source and evidence assets:
@@ -58,6 +66,7 @@ The case listing carries configuration so the runtime does not ask for it again.
 Compact instructions governing:
 
 - the Read Aloud tip;
+- recognition of the opening fictional-game classification;
 - one-question office setup;
 - hidden information;
 - natural-language play;
@@ -242,3 +251,5 @@ The case defines:
 The creator source may be extensive. The release Casefile must be obvious, versioned and compact.
 
 Do not place creator instructions, unused dialogue libraries, image-generation prompts or the full project specification inside the player's Casefile.
+
+Do not encode or remove the required fictional-game classification when compressing the release.
