@@ -39,7 +39,7 @@ The static page is not a game application. It is a case card, copy surface and n
 
 ## Preferred GitHub layout
 
-Keep the Casefile and canonical evidence together:
+Keep the Casefile and pregenerated, creator-verified canonical evidence together:
 
 ~~~text
 cases/DA-001-case-name/
@@ -90,13 +90,15 @@ Do not force players to download and upload a folder before play.
 Preferred method:
 
 1. The Casefile gives ChatGPT the hidden evidence registry.
-2. The case page keeps evidence in closed, numbered panels.
+2. The case page keeps the existing verified evidence in closed, numbered panels.
 3. ChatGPT says **OPEN EVIDENCE E-01** when the item unlocks.
 4. The player switches to the case page, opens E-01, zooms and studies it.
 5. The player returns to ChatGPT and describes what they noticed or want to inspect.
 6. ChatGPT compares the report against CANON and advances the investigation appropriately.
 
-This workflow does not depend on ChatGPT visually ingesting the image. Direct image upload remains optional.
+This workflow does not depend on ChatGPT visually ingesting or generating the image. Direct image upload remains optional.
+
+The asset must exist before play begins. A case page must never replace a canonical evidence file with a fresh runtime generation.
 
 On desktop, the player may keep ChatGPT and the case page side by side. On mobile, they switch between browser and ChatGPT. Both use the same Casefile and evidence IDs.
 
@@ -157,4 +159,3 @@ Before stabilizing the format, test the entire handoff on:
 - large-text accessibility settings.
 
 One Casefile, one page, two screen sizes.
-
