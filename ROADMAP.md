@@ -19,6 +19,8 @@ Required before a public launch:
 - one natural-language interrogation packet;
 - optional Voice interrogation;
 - Player Moments and personalized debrief;
+- terminal failure and Caseline rules;
+- Casefile data-budget enforcement;
 - spoiler-safe transport for hidden GM state;
 - reliable evidence-image transport;
 - fictional-only safety boundary;
