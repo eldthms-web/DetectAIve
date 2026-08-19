@@ -141,6 +141,22 @@ Optional Voice Cards specify:
 
 Control instructions must remain separate from spoken dialogue.
 
+### Failure packet
+
+A case should distinguish:
+
+- nonterminal consequences;
+- terminal failure triggers;
+- irreversible actions;
+- ambiguous commitments requiring clarification;
+- permitted failure-screen families;
+- custom failure lines or epilogues;
+- postmortem behavior.
+
+The runtime may improvise failure presentation within these boundaries. It may not invent a terminal cause merely because a funny screen is available.
+
+See [Failure and Caseline System](FAILURE-AND-CASELINE.md).
+
 ### Resolution and debrief
 
 The case defines:
