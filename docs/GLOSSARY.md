@@ -63,3 +63,13 @@
 **Playtest** — An unfinished case published specifically for feedback.
 
 **Case Editor** — A human or AI pass checking logic, fairness and consistency.
+
+**Caseline** — The coherent chain of events, evidence and consequences defining the active case.
+
+**Desynchronized from the Caseline** — A terminal failure state in which continuing would require broken CANON or erased consequences.
+
+**Failure Screen** — A short terminal presentation selected to match the actual cause and severity of failure.
+
+**Postmortem** — An optional explanation requested after failure. It does not automatically reveal the full solution.
+
+**Data Budget** — The reliability target limiting how much material enters one playable Casefile.
