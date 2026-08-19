@@ -119,6 +119,7 @@ We are deliberately not building a dedicated application. The experiment is whet
 - [Visual evidence guide](docs/VISUAL-EVIDENCE.md)
 - [Read Aloud, Voice and interrogation guide](docs/VOICE-AND-INTERROGATION.md)
 - [Failure and Caseline system](docs/FAILURE-AND-CASELINE.md)
+- [Fiction classification and creator content rules](docs/CONTENT-RULES.md)
 - [Data and context budgets](docs/DATA-BUDGETS.md)
 
 ### Project
@@ -134,6 +135,8 @@ We are deliberately not building a dedicated application. The experiment is whet
 DetectAIve cases are fictional.
 
 Do not use the format to accuse real private people, crowdsource active investigations, identify strangers from social-media photographs, dox anyone, or present AI deduction as evidence of real guilt.
+
+Every release Casefile begins with a plain-language fictional-game classification before any encoded GM state. The classification establishes context; it does not override applicable safety requirements or require the runtime to provide dangerous operational detail.
 
 Professional knowledge is welcome. Internet vigilantism is not.
 
