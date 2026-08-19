@@ -1,74 +1,77 @@
 # Play DetectAIve in Sixty Seconds
 
-DetectAIve is still in development, but the intended player experience is deliberately small.
+DetectAIve is still in development, but the intended player experience is deliberately simple.
 
 ## What you need
 
-- ChatGPT with image input and generation available;
-- one complete DetectAIve Casefile;
-- any evidence images supplied with that case;
-- Voice only if you want an optional voiced interrogation or debrief.
+- ChatGPT;
+- one **PLAY CASE** page;
+- about five to fifteen minutes, depending on the case.
+
+You do not need to download an application, configure an API or upload every evidence image to ChatGPT.
 
 ## Start a case
 
-1. Open a fresh ChatGPT conversation.
-2. Paste the complete Casefile.
-3. Attach any evidence files the Casefile tells you to attach.
-4. Send the message.
-5. Answer one short office question—or skip it.
-6. Begin investigating.
+1. Open the case's **PLAY CASE** page.
+2. Check its time, difficulty and content information.
+3. Select **COPY CASEFILE**.
+4. Open a fresh ChatGPT conversation.
+5. Paste and send.
+6. Answer one short office question.
+7. Begin investigating.
 
 The first response should be approximately:
 
-> **Welcome to DetectAIve. Who works in your office?**
+> **WELCOME TO DETECTAIVE**
 >
-> **QUICK START** — Invent a suitable investigator and open the case.
+> *Tip: this game works well with Read Aloud. When evidence appears, pause and inspect it at your own pace.*
 >
-> **BUILD MY OFFICE** — Let me choose or create the cast.
+> **Who works in your office?**
 >
-> **USE MY CHARACTER** — I will name, describe or upload someone.
+> **QUICK START** — Give me a detective and open the case.
 >
-> **NO OFFICE CAST** — Begin with the mystery alone.
+> **BUILD MY OFFICE** — Let me choose the cast.
 >
-> You may also say **SURPRISE ME**.
+> **NO COMPANION** — Just give me the mystery.
+>
+> **SURPRISE ME** — Make the decisions for me.
 
-A returning player may paste an optional Office Card with the Casefile and skip setup.
+The player answers once. Unless they deliberately choose deeper customization, the case starts immediately.
 
 ## How to play
 
-Speak naturally.
+Use Read Aloud whenever you would rather listen. Pause when evidence appears; there is no timer.
 
-Examples:
+Speak naturally:
 
 - Examine the desk more closely.
-- Compare the two security photographs.
-- Is the window reflection useful?
 - Ask Mara where she was at nine.
 - Show him the receipt and ask again.
 - I think the witness is lying about the train.
 - Give me a small hint.
 - I am ready to accuse someone.
-- Switch to Voice for this interrogation.
-- Return to text.
 
-You do not need to narrate routine movement, guess special commands or select from a dialogue tree.
+You do not need special commands or a dialogue menu.
 
-## What not to expect
+## Open evidence
 
-- The mystery should not rewrite itself around your theory.
-- A wrong answer should usually create a consequence or detour, not a blunt “try again.”
-- Voice should be optional.
-- Office characters should not be compulsory.
-- The debrief should refer to what actually happened during your investigation.
+When ChatGPT says:
+
+> **OPEN EVIDENCE E-02**
+
+return to the case page, open E-02 and inspect it. Then tell ChatGPT what you noticed or what you want to examine next.
+
+The image may remain on the case page. Uploading it to ChatGPT is optional unless that particular case explicitly requests it.
 
 ## Case closed
 
-After resolution, ChatGPT may offer:
+After a successful resolution, ChatGPT may say:
 
-- a short office debrief;
-- a Voice debrief;
-- an epilogue;
-- a reward image;
-- creator-approved continuation material.
+> **CASE CLOSED**
+>
+> **Someone is waiting back at the office.**
+>
+> **VOICE DEBRIEF AVAILABLE**
 
-All of these are optional. Solving the mystery is the core experience.
+The debrief may also run in text. Voice, office characters, reward images and epilogues are optional. Solving the mystery is the core experience.
+
