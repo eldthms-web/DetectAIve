@@ -2,17 +2,26 @@
 
 ## Recommendation
 
-Use three layers over time:
+Use three layers:
 
 1. **Subreddit:** discovery, discussion, play reports and creator culture.
-2. **GitHub:** canonical files, versions, evidence assets and project development.
-3. **Simple catalog website:** a later player-friendly front door with case cards and copy/download actions.
+2. **GitHub:** canonical Casefiles, evidence assets, versions and project development.
+3. **GitHub Pages:** free player-facing case pages with copy and evidence controls.
 
 Do not ask one platform to perform all three jobs.
 
+## Two entrances
+
+The community should make two intentions immediately obvious:
+
+- **PLAY A CASE**
+- **MAKE A CASE**
+
+A player should not land in a specification. A prospective creator should not have to reverse-engineer a finished Casefile.
+
 ## Subreddit role
 
-Reddit is well suited to:
+Reddit is suited to:
 
 - discovering new cases;
 - browsing by flair;
@@ -33,55 +42,60 @@ Recommended early flairs:
 - OFFICE SHOWCASE;
 - WILDEST WRONG THEORY.
 
-Reddit should not be the only canonical storage location. Posts are awkward for multi-file versioning, packaged assets and corrected releases.
+Reddit should not be the canonical file host. Posts are awkward for corrected releases, multi-file cases and stable evidence URLs.
 
 ## GitHub role
 
 This repository should remain the source of truth for:
 
-- the specification;
+- the specification and creator guide;
 - templates;
 - official cases;
 - stable case IDs and versions;
-- change history;
-- corrected evidence;
-- issue tracking;
+- canonical evidence images;
+- change history and corrections;
 - creator contributions;
 - downloadable releases.
 
-GitHub is excellent backstage infrastructure but unfamiliar to many players. Public instructions should link directly to the exact Casefile or download rather than telling newcomers to navigate branches and folders.
+Keep each case's logic and evidence together. Imgur or other image hosts are fallbacks rather than the default architecture.
 
-GitHub Discussions may support creator design conversations, but it should not replace the player-facing community unless the audience naturally moves there.
+GitHub is excellent backstage infrastructure but unfamiliar to many players. Public links should lead directly to a case page, not to branches and folders.
 
-## Catalog website
+## GitHub Pages role
 
-A small static website can eventually provide:
+A static case page can provide:
 
-- Play and Create entrances;
-- filters for time, difficulty and content;
-- case cards;
-- one clear copy or download action;
-- tested-interface badges;
-- links to subreddit discussion;
-- links to canonical GitHub versions.
+- case card and manifest;
+- **COPY CASEFILE**;
+- raw/download fallback;
+- closed numbered evidence panels;
+- full-resolution images;
+- Reddit discussion link;
+- canonical version link.
 
-This does not require an application or database. It can be generated from the same repository after the format stabilizes.
+It requires no API, user account, database or creator-operated server.
 
-Do not build it before at least several cases have exposed what the catalog actually needs.
+A broader searchable catalog may come later, after several cases reveal what filters are actually needed.
 
-## Mobile-first delivery
-
-Reddit should send players to one mobile-friendly static case page rather than asking them to copy a long post or navigate GitHub.
-
-The intended handoff is:
+## Player handoff
 
 ~~~text
 Reddit → PLAY CASE → COPY CASEFILE → ChatGPT
 ~~~
 
-The case page may also hold closed, numbered evidence panels. ChatGPT instructs the player which evidence ID to open, and the player returns with their observation. This requires no API or dedicated application.
+After paste, the runtime mentions Read Aloud, asks one office question and begins. When evidence unlocks, the player returns to the same page, opens the numbered asset and tells ChatGPT what they noticed.
 
 See [Mobile-First Distribution](MOBILE-DISTRIBUTION.md).
+
+## Creator handoff
+
+The creator entrance should point to the [AI-Assisted Creator Guide](CREATOR-GUIDE.md) and a future blank template.
+
+The basic promise is:
+
+> Load the creator material into your AI and say **Help me make a case.**
+
+The AI assists with formalization and QA. The human creator retains authority over canon.
 
 ## Case posting pattern
 
@@ -91,12 +105,12 @@ A subreddit case post should contain:
 - case manifest;
 - short premise;
 - evidence preview that does not reveal answers;
-- one obvious PLAY / GET CASEFILE link;
+- one obvious **PLAY CASE** link;
 - content warnings;
 - version number;
 - discussion rules.
 
-The complete canonical package should live in GitHub or a release download.
+The complete canonical package lives in GitHub.
 
 ## Spoiler infrastructure
 
@@ -110,22 +124,15 @@ The complete canonical package should live in GitHub or a release download.
 
 ## Multi-part cases
 
-Optional later structures may include:
-
-- Part I and Part II;
-- locked evidence annexes;
-- dedicated interrogation packets;
-- follow-up cases;
-- alternate lead branches;
-- creator commentary;
-- solution breakdowns.
+Optional later structures may include Part I and Part II, locked evidence annexes, dedicated interrogation packets, follow-up cases, alternate lead branches, creator commentary and solution breakdowns.
 
 A simple standalone Casefile remains the default.
 
 ## Other platforms
 
-Discord may be useful for live collaboration but is a poor canonical archive and discovery surface.
+Discord may help live collaboration but is a poor canonical archive and discovery surface.
 
-Itch.io may become a useful mirror if cases are distributed as polished downloadable packages, but it should not define the format.
+Itch.io may become a useful mirror for polished downloadable packages, but it should not define the format.
 
 A dedicated web application is explicitly deferred.
+
