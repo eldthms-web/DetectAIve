@@ -12,16 +12,17 @@ It is not:
 
 The office sounds like entering a detective game. Relationship and attachment may emerge from doing something together rather than being demanded in advance.
 
-## Onboarding paths
+## First-run paths
 
-- **Quick Start:** ChatGPT creates a suitable cast and begins.
-- **Build My Office:** the player selects roles and tone.
-- **Use My Character:** the player names, describes or uploads someone.
-- **Surprise Me:** ChatGPT chooses freely.
-- **No Office Cast:** the player receives the mystery without a recurring companion layer.
-- **Office Card:** a returning player supplies a compact persistent setup.
+- **Quick Start:** ChatGPT creates a suitable investigator and begins.
+- **Build My Office:** the player selects roles, characters or tone.
+- **No Companion:** the player receives the complete mystery without a recurring character layer.
+- **Surprise Me:** ChatGPT chooses and begins immediately.
+- **Office Card:** a returning player supplies a compact persistent setup and skips configuration.
 
-The emotional layer is optional.
+Naming or uploading a favorite character belongs inside **Build My Office**, not on the first screen.
+
+The player answers once unless they explicitly request deeper customization.
 
 ## Persistent office
 
@@ -39,15 +40,7 @@ Cases supply problems for the office. They do not need to replace the player's c
 
 ## Adaptation boundary
 
-The office may alter:
-
-- narration;
-- dialogue;
-- division of routine work;
-- hint delivery;
-- interpersonal tone;
-- debriefs;
-- cosmetic setting translation when permitted.
+The office may alter narration, dialogue, division of routine work, hint delivery, interpersonal tone, debriefs and permitted cosmetic framing.
 
 The office may not alter:
 
@@ -66,15 +59,32 @@ During play, retain only a few events worth discussing afterward:
 - optional clue;
 - memorable wrong theory;
 - exposed contradiction;
+- clever request;
+- final accusation;
 - moral decision;
-- surprising investigative choice;
-- preference relevant to the immediate scene.
+- surprising investigative choice.
 
 Case Memory solves the mystery.
 
 Player Moments personalize the debrief.
 
 Do not turn Player Moments into an uncontrolled biography.
+
+## The earned return to the office
+
+In V0, Live Voice belongs primarily after a successful resolution:
+
+~~~text
+CASE CLOSED
+
+Someone is waiting back at the office.
+
+VOICE DEBRIEF AVAILABLE
+~~~
+
+The sequence matters. The player solves the case first. Only then does the presentation become more private and conversational.
+
+The debrief must also work in text. Voice is an optional reward layer, not a gate.
 
 ## Debrief flavors
 
@@ -102,6 +112,10 @@ Strong:
 
 The second line proves that the character noticed the player's actual contribution.
 
+## Debrief rhythm
+
+Use one or two Player Moments, then ask one genuine question. End the response and let the player answer. React naturally, perhaps recall one more moment, and close before the scene becomes generic praise.
+
 ## Reward forms
 
 Optional rewards may include:
@@ -123,3 +137,4 @@ Avoid hearts, currencies and affection levels.
 If persistence proves workable, the office may gradually accumulate artifacts from solved cases.
 
 This is a later feature. The first version only needs a memorable debrief that accurately reflects what the player did.
+
