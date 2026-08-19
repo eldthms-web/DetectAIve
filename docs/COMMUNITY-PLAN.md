@@ -69,6 +69,20 @@ This does not require an application or database. It can be generated from the s
 
 Do not build it before at least several cases have exposed what the catalog actually needs.
 
+## Mobile-first delivery
+
+Reddit should send players to one mobile-friendly static case page rather than asking them to copy a long post or navigate GitHub.
+
+The intended handoff is:
+
+~~~text
+Reddit → PLAY CASE → COPY CASEFILE → ChatGPT
+~~~
+
+The case page may also hold closed, numbered evidence panels. ChatGPT instructs the player which evidence ID to open, and the player returns with their observation. This requires no API or dedicated application.
+
+See [Mobile-First Distribution](MOBILE-DISTRIBUTION.md).
+
 ## Case posting pattern
 
 A subreddit case post should contain:
