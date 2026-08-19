@@ -15,6 +15,8 @@ A release Casefile contains only:
 - state transitions;
 - optional Voice and debrief hooks.
 
+It does not need prompts whose only purpose is to regenerate canonical evidence during play. Those prompts remain in creator source; the Casefile carries stable asset IDs, links and the verified evidence registry.
+
 Large reference libraries belong in the repository, not in every case.
 
 ## Current measurements
@@ -82,6 +84,7 @@ Prefer:
 - short runtime rules;
 - case-specific packets only;
 - external image assets;
+- creator-time image prompts kept outside the runtime capsule;
 - referenced optional annexes opened when unlocked.
 
 Remove:
@@ -92,7 +95,8 @@ Remove:
 - the full trope library;
 - unrelated genre possibilities;
 - archived prototype language;
-- documentation intended only for authors.
+- documentation intended only for authors;
+- prompts for evidence images that have already been generated and published.
 
 ## Split before bloating
 
