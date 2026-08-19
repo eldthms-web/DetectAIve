@@ -38,6 +38,7 @@ MODE: Locked Mystery
 DIFFICULTY: Medium
 ESTIMATED TIME: 8–12 minutes
 EVIDENCE IMAGES: 3
+CANONICAL EVIDENCE: Pregenerated and creator-verified
 PLAYER INTERFACE: Text + optional Read Aloud
 EVIDENCE DELIVERY: GitHub Pages
 VOICE DEBRIEF: Available
@@ -84,7 +85,7 @@ Contains the immutable CANON:
 - consequences;
 - endings.
 
-The exact spoiler-resistant representation remains subject to playtesting. Obfuscation is spoiler resistance, not security.
+The first alpha successfully used a Base64-encoded GM capsule: ChatGPT decoded and understood the locked mystery. That validates the basic transport idea, but not yet cross-interface reliability or spoiler resistance. The exact stable representation remains subject to playtesting. Obfuscation is spoiler resistance, not security.
 
 ### Player-facing opening
 
@@ -105,6 +106,7 @@ EVIDENCE ID:
 TITLE:
 SOURCE PATH:
 PLAYER URL:
+ASSET VERSION OR HASH:
 UNLOCK CONDITION:
 CANONICAL CONTENTS:
 ACCEPTED OBSERVATIONS:
@@ -113,6 +115,7 @@ MISLEADING APPEARANCES:
 DERIVED ASSETS:
 ACCESSIBILITY FALLBACK:
 DIRECT AI ANALYSIS: Optional / Supported / Not tested
+RUNTIME GENERATION: Prohibited for canonical evidence
 VERIFICATION STATUS:
 ~~~
 
@@ -120,7 +123,9 @@ The canonical contents let ChatGPT judge the player's report without visually in
 
 If the player uploads the image, ChatGPT may discuss visible details, but image analysis must not overwrite the creator-verified registry or manufacture facts absent from CANON.
 
-Generated zooms or reconstructions may clarify captured information. They may not invent new information.
+Canonical evidence must already exist before the player starts. A generation prompt used during authoring belongs in creator notes or source files. Do not put it in the release capsule for ChatGPT to execute during play.
+
+Pregenerated, creator-verified zooms or reconstructions may clarify captured information. They may not invent new information. A runtime-generated derivative cannot be required for a deduction.
 
 ### Clue registry
 
@@ -189,6 +194,21 @@ Non-spoken control instructions remain separate from dialogue.
 
 Voice interrogation cards use the same structure but are experimental in V0.
 
+### Noncanonical image hooks
+
+A case may optionally offer runtime-generated cosmetic art:
+
+~~~text
+IMAGE HOOK ID:
+PURPOSE: Office / atmosphere / reward / souvenir
+UNLOCK CONDITION:
+PROMPT INPUTS:
+CANONICALITY: Noncanonical
+MUST NOT DEPICT OR ADD:
+~~~
+
+These hooks may use the office cast and Player Moments. They must not represent forensic evidence, introduce solution-relevant facts or retroactively alter the case registry.
+
 ### Failure packet
 
 A case distinguishes:
@@ -222,4 +242,3 @@ The case defines:
 The creator source may be extensive. The release Casefile must be obvious, versioned and compact.
 
 Do not place creator instructions, unused dialogue libraries, image-generation prompts or the full project specification inside the player's Casefile.
-
