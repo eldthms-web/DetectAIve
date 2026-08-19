@@ -4,6 +4,8 @@
 
 **Casefile** — The compact portable mystery cartridge pasted into ChatGPT.
 
+**Fiction Classification** — The required first unencoded Casefile block identifying all case-specific crime material as authored fiction and prohibiting real-person investigation or safety evasion.
+
 **Case Source** — The creator's editable files, notes, prompts and evidence assets.
 
 **Release Casefile** — The versioned player payload separated from creator material.
