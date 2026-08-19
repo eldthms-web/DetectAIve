@@ -28,6 +28,24 @@ GitHub provides one authoritative version history for case logic and evidence. A
 
 External image hosts are fallbacks, not the default.
 
+## Immutable evidence rule
+
+> **If an image can change the solution, generate and verify it before play.**
+
+Canonical evidence is a published game asset, not a request for the runtime image generator.
+
+The first alpha demonstrated the reason: an evidence prompt stored correctly inside the sealed GM capsule was repeatedly overwhelmed by the recent 1930s office aesthetic in the conversation. The generator produced excellent office splash art and unusable forensic evidence.
+
+For V0:
+
+- create every canonical evidence image during authoring;
+- inspect the actual final image, not merely its prompt;
+- reconcile the evidence registry with the final pixels;
+- store and version the approved asset with the case;
+- never regenerate it during ordinary play.
+
+Image-generation prompts are creator source. They are not substitutes for evidence assets and should not be placed in the runtime capsule solely for live execution.
+
 ## Human observation is the V0 baseline
 
 The player, not the runtime AI, is the primary viewer of evidence.
@@ -41,6 +59,19 @@ When an image unlocks:
 5. ChatGPT compares that report against the hidden evidence registry.
 
 The Casefile already knows what the image canonically contains and means. Direct AI image analysis is optional and must not replace the verified registry.
+
+## Runtime-generated art
+
+Runtime image generation remains useful where drift cannot corrupt the mystery:
+
+- office portraits;
+- character or team splash art;
+- mood pieces;
+- non-evidentiary scene illustrations;
+- reward images;
+- post-case souvenirs.
+
+These images default to **noncanonical cosmetic art**. Unexpected details inside them are not clues.
 
 ## Story art versus evidence art
 
@@ -132,7 +163,9 @@ Differences should be controlled and relevant. Avoid accidental continuity noise
 
 **Derived Evidence** includes approved crops, zooms, scans, diagrams or reconstructions made from canonical material.
 
-Derived evidence must not add facts absent from the source. When a deduction depends on enhancement, creators should preferably supply and test the derived asset in advance.
+Derived evidence must not add facts absent from the source. When a deduction depends on enhancement, the creator must supply and test the derived asset before publication.
+
+A runtime-generated crop, enhancement or reconstruction may be offered only when puzzle integrity cannot depend on its result. It cannot unlock a required clue or override the canonical asset.
 
 ## Evidence registry writing
 
@@ -163,6 +196,8 @@ Before publication, inspect every important evidence asset:
 - Could an innocent interpretation remain plausible until enough evidence appears?
 - Does the written CANON agree with the image?
 - Do filename, thumbnail, URL and alt text avoid spoilers?
+- Is this the exact published file rather than an unverified regeneration?
+- Does it remain legible in the final case-page presentation?
 
 If the image fails, revise or replace it before publication.
 
@@ -181,4 +216,3 @@ The desired reaction after a missed clue is:
 Never:
 
 > “There was no possible way to know.”
-
