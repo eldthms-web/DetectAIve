@@ -1,217 +1,187 @@
 # AI-Assisted Creator Guide
 
-DetectAIve is not only a way to play mysteries. It is a way for ordinary people to make them with the help of an AI.
-
-No programming is required.
-
-Conceptually, DetectAIve is an extremely lightweight RPG Maker for mysteries. The output is not a compiled game. It is a portable Casefile plus evidence assets.
+DetectAIve lets ordinary people make small detective games with AI assistance. No programming is required. The output is a portable Casefile plus verified evidence assets.
 
 > **The creator authors reality.**
->
 > **The AI helps formalize it.**
->
 > **The player authors the investigation.**
 
 ## Start here
 
-Give your AI the relevant creator documents and say:
+Give this guide to your AI and say:
 
 > **Help me make a DetectAIve case. Guide me one decision at a time. Do not change locked canon without asking me.**
 
-The AI may help brainstorm, organize, stress-test, format and revise. The creator decides what is true.
+Do not make the creator study the repository before beginning. Ask only the next useful question and consult deeper specs when the work reaches them.
 
-## Recommended authoring passes
+The whole process should feel like one flow:
 
-### 1. Invent
+> **Generate / Invent → Lock → Verify Evidence → Package → Playtest**
 
-Choose the basic promise:
+### AI-generated mysteries
+
+The creator may ask the AI to invent most or all of the mystery. That is fine. The integrity rule is the same:
+
+> **Generate first. Lock second. Play third.**
+
+Before any player-facing investigation begins, establish the complete responsible party, timeline, motive, means, opportunity, evidence meanings, suspect knowledge and resolution conditions. Do not generate the culprit dynamically in response to the player's theories.
+
+## 1. Generate / invent the promise
+
+Decide:
 
 - What happened?
 - Who is responsible?
-- Why is the case interesting?
-- What should the player feel when the truth becomes clear?
-- How long should the case take?
+- Why is it interesting?
+- What should become satisfying or surprising when the truth is understood?
+- What setting/era is canonical?
+- How long and difficult should the case be?
+- What content and gore labels apply?
 
-At this stage, exploration is welcome.
+Exploration is welcome here.
 
-### 2. Lock
+## 2. Lock reality
 
-Freeze the core reality before building puzzles:
+Before building puzzles, freeze:
 
 - culprit or responsible party;
 - motive;
 - means;
 - opportunity;
 - true timeline;
-- victim status;
+- victim status if relevant;
 - innocent explanations;
 - final resolution conditions.
 
-After this pass, the AI must not rewrite truth merely to reward a player's theory.
+After this pass, do not rewrite truth merely because a later theory sounds better.
 
-### 3. Build the clue chain
+## 3. Build the clue chain
 
-For every required deduction, identify the evidence that supports it.
+For every required deduction, identify evidence the player can actually receive. Classify clues as **required, supporting, optional, red herring, decoration** or **accidental artifact**.
 
-Mark clues as:
+Motive, means and opportunity are useful structures, not mandatory puzzle slots.
 
-- required;
-- supporting;
-- optional;
-- red herring;
-- decoration;
-- accidental artifact.
+Natural-language matching should remain semantic. Record the canonical observation and a few obvious paraphrase families when useful, but do not build giant phrase-password tables. If a player's wording is too vague, the runtime can ask a natural clarifying question.
 
-Motive, means and opportunity are a useful structure, but not every case must use them mechanically.
+## 4. Verify evidence
 
-### 4. Design visual evidence
-
-Decide what the player must actually notice. Then create or commission the image and verify that the intended detail really exists.
-
-The AI can help write generation prompts, propose decoys, compare versions and draft the evidence registry. Generation happens during authoring. The creator must inspect the final asset.
+Decide what the player must actually notice, then create, photograph, draw, render or commission the asset.
 
 > **If an image can change the solution, generate and verify it before play.**
 
-Do not ship an evidence prompt and expect the active game conversation to generate the canonical asset. Conversation imagery can contaminate runtime generation even when the prompt itself is correct.
+The AI may help write creator-time image prompts and propose decoys, but the creator must inspect the final pixels. Runtime generation is not canonical evidence.
 
-Once an evidence image passes inspection:
+For each approved asset:
 
 - give it a stable evidence ID;
 - store it in the case's `evidence/` folder;
-- record its version or hash where practical;
-- update the registry to match the actual pixels;
-- treat later changes as a versioned case correction.
+- record what is visibly present and what deductions it permits;
+- ensure the registry matches the actual file;
+- test phone legibility and avoid spoiler filenames/alt text;
+- treat later corrections as a new case version.
 
-Store verified images with the case in GitHub.
+User-supplied photographs, hand art, 3D renders and creator-generated images all work. DetectAIve cares that the published evidence is fixed and verified, not how it was made.
 
-Keep generation prompts in creator notes. The release Casefile needs the canonical contents, accepted observations and asset link—not a prompt whose job is to recreate the image live.
+See [Visual Evidence](VISUAL-EVIDENCE.md) for puzzle design and QA.
 
-### 5. Build people, not answer dispensers
+## 5. Build people, not answer dispensers
 
-For each important suspect or witness, define:
+For every important suspect or witness define:
 
 - what they know;
 - what they believe;
 - what they claim;
 - what they hide;
 - what they lie about;
-- what they do not know;
-- what evidence changes their behavior;
-- what makes their story collapse.
+- what they genuinely do not know;
+- evidence that changes their behavior;
+- contradiction threshold / breakpoint;
+- what happens after the breakpoint.
 
-The AI may improvise speech within that state. It may not invent forbidden knowledge.
+The runtime may improvise speech inside that state. It may not invent forbidden knowledge or confess early because the player sounds confident.
 
-### 6. Define consequences and failure
+## 6. Define consequences
 
-List ordinary consequences, irreversible actions and the few actions that could genuinely destroy the investigation.
+Separate:
 
-Do not mistake unexpected play for failure. The AI may improvise an appropriate consequence or failure-screen presentation only when the established world justifies it.
+- harmless off-path investigation;
+- nonterminal complications;
+- irreversible actions;
+- rare terminal failures;
+- ambiguous commitments that require clarification.
 
-### 7. Plant debrief hooks
+A theory is not automatically an accusation. Catastrophic committed actions may end the run, but unexpected creativity is not failure. Terminal screens are concise UI events; do not require narrated gore.
 
-Identify a small set of Player Moments worth remembering:
+See [Failure and Caseline](FAILURE-AND-CASELINE.md).
 
-- first strong deduction;
-- optional clue;
-- memorable wrong theory;
-- clever request;
-- interrogation success;
-- final accusation;
-- major moral decision.
+## 7. Plant debrief hooks
 
-The debrief should recognize actual play rather than deliver generic praise.
+Choose only a few Player Moments worth remembering: first strong deduction, optional clue, memorable wrong theory, exposed contradiction, clever request, interrogation success, difficult decision or final accusation.
 
-### 8. Package
+Specific recognition is the reward. Do not build generic praise meters.
 
-Create the case folder:
+## 8. Package
+
+Use the current case structure:
 
 ~~~text
 cases/DA-001-case-name/
-├── README.md
-├── casefile.txt
-├── creator-notes.md
-├── evidence/
-│   ├── E-01.jpg
-│   ├── E-02.jpg
-│   └── E-03.jpg
-└── page/
-    └── index.html
+├── README.md              optional creator/player note
+├── casefile.txt            portable cartridge
+├── index.html              or page/index.html for the PLAY CASE page
+└── evidence/
+    ├── E-01.*
+    ├── E-02.*
+    └── E-03.*
 ~~~
 
-The source may be extensive. The player's Casefile remains compact.
+A release Casefile begins with the exact unencoded fictional-game classification from [Content Rules](CONTENT-RULES.md), followed by a spoiler-free manifest, the compact [Runtime Kernel](RUNTIME-KERNEL.md), then sealed case-specific GM state.
 
-The release Casefile must begin with the unencoded block in [Fiction Classification and Creator Content Rules](CONTENT-RULES.md). It appears before the manifest and sealed GM capsule.
+The release should contain canonical evidence facts and stable asset links—not creator image prompts intended for live execution.
 
-Confirm that all case-specific people and evidence are fictional, content labels are accurate and dangerous subjects remain non-operational.
+## 9. Fairness pass
 
-### 9. Perform the fairness pass
-
-Ask the AI to act as a hostile Case Editor, then verify its findings yourself:
+Ask the AI to act as a hostile Case Editor, then verify the findings yourself:
 
 - Can the intended solution be proved from available evidence?
-- Does any deduction require reading the creator's mind?
-- Can the player receive every required clue?
-- Does an image accidentally reveal too much?
-- Does the registry agree with the asset?
-- Does the release try to generate any canonical evidence at runtime?
-- Is the fictional-game classification first, exact and unencoded?
-- Does the case contain any real private-person data or unnecessary operational harm detail?
-- Can a suspect leak facts they should not know?
-- Does the AI protect locked truth when challenged?
+- Can every required clue actually be reached?
+- Does any deduction require mind-reading or password phrasing?
+- Does the registry agree with the published asset?
+- Is any required image too small or ambiguous on a phone?
+- Can a suspect leak knowledge they should not have?
+- Does the runtime preserve locked truth when challenged by an attractive wrong theory?
 - Are red herrings honestly explainable?
-- Does the ending explain the strange details?
+- Does the ending account for the strange details?
+- Is the fictional classification first and unencoded?
+- Are all case-specific people fictional and all dangerous details non-operational?
 
-### 10. Playtest fresh
+## 10. Playtest fresh
 
-Open a fresh ChatGPT conversation and use only the release material a stranger would receive.
+Open a fresh ChatGPT conversation and use only what a stranger would receive.
 
-Test at least:
+Test:
 
-- Quick Start onboarding;
-- No Companion mode;
-- the intended clue route;
-- one unexpected but reasonable route;
+- Quick Start and No Companion;
+- intended clue route;
+- one unexpected reasonable route;
 - one wrong theory;
+- natural-language paraphrases;
 - one interrogation;
 - one accusation;
-- the evidence-page handoff;
-- the debrief's Player Moment accuracy.
+- the actual evidence-page handoff on desktop and mobile;
+- specific Player Moment recall in the debrief.
 
-The first real milestone is one stranger completing one case without the creator coaching them.
+For the next V0 tests, measure four things rather than inventing more systems:
 
-## What the AI may improvise
+1. CANON integrity;
+2. natural-language clue recognition;
+3. evidence handoff friction;
+4. specific debrief memory.
 
-The AI may create:
+The milestone is one stranger completing one case without creator coaching.
 
-- connective narration;
-- character phrasing;
-- mundane environmental detail;
-- reasonable reactions;
-- hints based on unlocked information;
-- transitions between authored beats;
-- failure-screen wording within defined causes;
-- personalized debrief dialogue from recorded Player Moments.
-- noncanonical office, atmosphere or reward art when requested.
+## Creation and play stay separate
 
-The AI may not create:
+Creators may use the full workshop. Players receive only the case page, release Casefile and evidence it unlocks.
 
-- a new culprit;
-- a new solution-critical clue;
-- a contradictory timeline;
-- secret knowledge for the wrong witness;
-- an unearned confession;
-- a terminal failure merely because the player surprised it;
-- a post-case memory that did not occur.
-- canonical or solution-relevant evidence generated during active play.
-
-## Keep creation and play separate
-
-A creator may give an AI the whole workshop because they are building a case.
-
-A player receives only:
-
-- the case page;
-- the release Casefile;
-- the canonical evidence it unlocks.
-
-The complicated part belongs to us, not to them.
+The complicated part belongs to the workshop, not to the player.

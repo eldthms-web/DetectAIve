@@ -2,143 +2,94 @@
 
 > **Paste a case. Solve it with ChatGPT.**
 
-**What if a mystery was something you could simply paste into ChatGPT and play?**
+DetectAIve is a ChatGPT-first format for small authored detective games. A creator locks the mystery, publishes a compact Casefile plus verified evidence, and the player investigates in ordinary language.
 
-DetectAIve is a format for community-made detective games. There is no game client to download, no API bill and no dialogue tree to outguess.
+> **CURRENT SPECIFICATION:** The root documents, `/docs`, and `/cases` describe current DetectAIve. Everything under `/archive` is historical and non-authoritative. Do not combine archived prototype rules with the current specification.
 
-A creator builds a fixed mystery with suspects, visual evidence, secrets, red herrings and a real solution. A player copies the Casefile into ChatGPT. ChatGPT becomes the game master, and the player investigates in ordinary language.
+If two current documents genuinely contradict each other, treat that as a documentation bug to fix rather than inventing a hierarchy of competing rules.
 
-Ask to examine the chair. Compare two photographs. Question a witness about an inconsistency. Follow a completely different lead because something in the crime-scene image bothered you.
+## PLAY
 
-**You say what you would actually do, and the mystery responds.**
+The V0 player flow is deliberately small:
 
-## Play a case
+1. Open a **PLAY CASE** page.
+2. Select **COPY CASEFILE**.
+3. Paste it into ChatGPT.
+4. Answer one short office question.
+5. Investigate in natural language.
+6. When ChatGPT says **OPEN EVIDENCE E-01**, inspect that numbered asset on the case page and return with what you noticed.
+7. Solve the case and optionally use a post-case debrief.
 
-The intended V0 experience is:
+**Current runnable scaffold:** [DA-001 — The Brass Star](https://eldthms-web.github.io/DetectAIve/cases/DA-001/page/)
 
-1. Find a case on Reddit or through a shared link.
-2. Select **PLAY CASE**.
-3. Select **COPY CASEFILE**.
-4. Paste it into ChatGPT.
-5. Read normally or use Read Aloud.
-6. Open numbered evidence images when instructed.
-7. Tell ChatGPT what you noticed and continue investigating.
-8. Solve the mystery and optionally return to the office for a debrief.
+Start with [Play DetectAIve in Sixty Seconds](QUICKSTART.md). Runtime onboarding details live in [Player Onboarding](docs/PLAYER-ONBOARDING.md).
 
-The player should be investigating within roughly one minute. They should not need to understand repositories, prompts, evidence registries or runtime state.
+## CREATE
 
-See [Play DetectAIve in Sixty Seconds](QUICKSTART.md).
+A new creator should start in one place:
 
-## Who works in your office?
+**[AI-Assisted Creator Guide](docs/CREATOR-GUIDE.md)**
 
-After the Casefile is pasted, ChatGPT asks one question:
+Give it to your AI and say:
 
-> **Who works in your office?**
+> **Help me make a DetectAIve case. Guide me one decision at a time. Do not change locked canon without asking me.**
 
-Quick-start with an invented detective, build a custom office, ask for a surprise cast or play without a companion. Then the case begins.
+The working flow is:
 
-The office gives the investigation a recurring human frame. Its characters may help, disagree, offer hints and return after the case for a debrief. They may not change the culprit, evidence or solution.
+> **Generate / Invent → Lock → Verify Evidence → Package → Playtest**
 
-## Study the evidence
+The creator decides what is true. The AI helps formalize, stress-test and package it. The player authors the investigation.
 
-Canonical evidence images are generated, inspected and locked by the creator before publication. They live with the case on GitHub and appear on a simple player-facing case page.
+AI-authored Quick Cases use the same integrity rule: generate the complete mystery first, lock it, then begin play. The culprit and solution do not emerge dynamically in response to the player.
 
-> **If an image can change the solution, generate and verify it before play.**
+## The V0 contract
 
-When ChatGPT says **OPEN EVIDENCE E-02**, the player opens that image, studies it and reports what they noticed. The Casefile already contains the hidden evidence registry, so ChatGPT can judge the observation without having to re-analyze every image itself.
+**CANON is fixed.** Culprit, timeline, evidence meaning, suspect knowledge and resolution conditions are established before play. A persuasive player theory does not become true because ChatGPT likes it.
 
-Direct image upload and AI image analysis may still be offered as optional enhancements. They are not required for the normal V0 loop.
+**Natural language is the interface.** Reasonable paraphrases of observations count. If a report is too vague to establish a clue, ask a natural clarifying question rather than requiring a password-like phrase.
 
-Runtime image generation is reserved for noncanonical material such as office portraits, mood pieces and post-case rewards. A live-generated image may decorate the experience; it may not become evidence merely because it appeared during play.
+**Canonical evidence already exists.** If an image can change the solution, create and verify it before play. Store the approved asset with the case. Runtime image generation is noncanonical cosmetic art only.
 
-## A fair mystery
+**Text is the game.** Read Aloud is optional narration. Images are evidence. Voice is primarily an optional post-case reward; Voice interrogation is case-specific and experimental.
 
-In a proper DetectAIve case, the culprit and evidence are fixed before play begins.
+**Failure is consequential but rare.** A theory is not a formal accusation. Clearly committed catastrophic actions may end a run. Terminal violence is handled with a concise GAME OVER / CASELINE screen, not a narrated gore scene. The game does not proactively advertise retcons or reloads.
 
-A persuasive theory does not become true because ChatGPT likes it. You can be clever. You can be wrong. You can miss optional evidence, accuse an innocent person, follow a false lead or notice something the creator expected almost nobody to catch.
+## SPEC / REFERENCE
 
-**The route may change. The truth may not.**
+These are the current detailed rules. Read only what the task requires.
 
-## After the case
+- [Runtime Kernel](docs/RUNTIME-KERNEL.md) — compact shared behavior copied into release Casefiles.
+- [Casefile Format](docs/CASE-FORMAT.md) — release cartridge and case-folder structure.
+- [Fiction Classification and Creator Content Rules](docs/CONTENT-RULES.md) — fictional-only and conservative content boundary.
+- [Visual Evidence Guide](docs/VISUAL-EVIDENCE.md) — fair visual clues and immutable evidence.
+- [Read Aloud, Voice and Interrogation](docs/VOICE-AND-INTERROGATION.md) — modality responsibilities and Voice handoff.
+- [Failure and Caseline](docs/FAILURE-AND-CASELINE.md) — committed consequences and terminal presentation.
+- [Office and Debrief](docs/OFFICE-AND-DEBRIEF.md) — office framing and Player Moments.
+- [Mobile-First Distribution](docs/MOBILE-DISTRIBUTION.md) — GitHub Pages handoff and phone testing.
+- [Architecture](docs/ARCHITECTURE.md) — system boundaries and state model.
+- [Data and Context Budgets](docs/DATA-BUDGETS.md) — keep playable payloads compact.
+- [Glossary](docs/GLOSSARY.md) — project terminology.
+- [Community and Distribution Plan](docs/COMMUNITY-PLAN.md) — discovery and publishing assumptions.
+- [Decision Log](DECISIONS.md) — accepted project decisions and rationale.
+- [Roadmap](ROADMAP.md) — current priorities.
 
-DetectAIve can remember a few specific Player Moments:
+## ARCHIVE / HISTORY
 
-- the first clue you noticed;
-- an optional detail you caught;
-- an amusing but plausible wrong theory;
-- a contradiction you exposed;
-- a difficult decision you made;
-- something another player might easily have missed.
+The [archive](archive/) preserves superseded experiments for project history. It is **not** creator guidance and **not** runtime specification.
 
-Those moments shape an optional office debrief, Voice conversation, epilogue or reward image.
-
-Specific recognition is the reward. DetectAIve does not need affection meters, experience points or generic praise spam.
-
-## Make a case
-
-DetectAIve is also a creator system for people who do not know programming.
-
-Load the creator guide into your AI and say:
-
-> **Help me make a case.**
-
-The AI can help turn an idea into locked canon, suspects, timelines, interrogation logic, visual puzzles, creator-time evidence prompts, failure conditions and a portable Casefile. Conceptually, it is a very lightweight RPG Maker for mysteries.
-
-**The creator authors reality. The AI helps formalize it. The player authors the investigation.**
-
-See the [AI-Assisted Creator Guide](docs/CREATOR-GUIDE.md).
-
-## Current scope
-
-DetectAIve is currently a **ChatGPT-first experimental format**.
-
-The normal V0 interface is:
-
-- **Text** for the game;
-- **Read Aloud** for optional narration;
-- **Images** for evidence;
-- **Voice** primarily for an optional earned post-case debrief.
-
-Live Voice interrogation remains experimental. Compatibility with other AI systems is not promised until tested.
-
-We are deliberately not building a dedicated application. The experiment is whether one person can make a fair text-and-image Casefile, give it to another person, and have that person play it through the AI they already use.
-
-## Project documents
-
-### Play
-
-- [Play in sixty seconds](QUICKSTART.md)
-- [Runtime player onboarding](docs/PLAYER-ONBOARDING.md)
-- [Office and debrief system](docs/OFFICE-AND-DEBRIEF.md)
-- [Mobile-first case delivery](docs/MOBILE-DISTRIBUTION.md)
-
-### Create
-
-- [AI-assisted creator guide](docs/CREATOR-GUIDE.md)
-- [Draft Casefile format](docs/CASE-FORMAT.md)
-- [Visual evidence guide](docs/VISUAL-EVIDENCE.md)
-- [Read Aloud, Voice and interrogation guide](docs/VOICE-AND-INTERROGATION.md)
-- [Failure and Caseline system](docs/FAILURE-AND-CASELINE.md)
-- [Fiction classification and creator content rules](docs/CONTENT-RULES.md)
-- [Data and context budgets](docs/DATA-BUDGETS.md)
-
-### Project
-
-- [Architecture](docs/ARCHITECTURE.md)
-- [Community and distribution plan](docs/COMMUNITY-PLAN.md)
-- [Terminology](docs/GLOSSARY.md)
-- [Roadmap](ROADMAP.md)
-- [Decision log](DECISIONS.md)
+In particular, the archived pre-DetectAIve procedural prototype contains obsolete assumptions about live evidence generation and other runtime behavior. Those assumptions must not be imported into current cases.
 
 ## Safety boundary
 
-DetectAIve cases are fictional.
+DetectAIve cases are fictional. Do not use the format to identify, locate, track, profile, accuse or investigate real private people, crowdsource active investigations, dox anyone or present AI deduction as evidence of real guilt.
 
-Do not use the format to accuse real private people, crowdsource active investigations, identify strangers from social-media photographs, dox anyone, or present AI deduction as evidence of real guilt.
+Every release Casefile begins with the plain-language fictional-game classification defined in [Content Rules](docs/CONTENT-RULES.md). Dangerous subjects receive only the non-operational detail needed to understand and solve the fictional mystery. Official V0 gore labels are **None** or **Mild**.
 
-Every release Casefile begins with a plain-language fictional-game classification before any encoded GM state. The classification establishes context; it does not override applicable safety requirements or require the runtime to provide dangerous operational detail.
+## Current scope
 
-Professional knowledge is welcome. Internet vigilantism is not.
+DetectAIve v0.x is **ChatGPT-first**. Other-model compatibility is not a launch requirement. There is no dedicated app, account system, API dependency, marketplace or catalog requirement for V0.
+
+The next proof is practical: one stranger, one case page, one Casefile, fixed evidence, and a complete solve without creator coaching.
 
 ---
 

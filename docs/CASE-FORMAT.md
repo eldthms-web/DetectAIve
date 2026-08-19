@@ -1,39 +1,40 @@
 # Draft Casefile Format
 
-**Status:** structural draft for playtesting. This is not yet a stable standard.
+**Status:** structural draft for playtesting.
 
-A Casefile is the portable cartridge a player pastes into ChatGPT. It is not the complete creator repository.
+A Casefile is the portable cartridge a player pastes into ChatGPT. It contains one case's runtime instructions and locked game state; it is not the full creator repository.
 
-## Required opening classification
+## Release order
 
-Every release Casefile begins with the exact plain-language block in [Fiction Classification and Creator Content Rules](CONTENT-RULES.md).
+Every release Casefile begins in this order:
 
-It must be the first unencoded text the runtime receives. Place it before the manifest, runtime kernel and sealed GM capsule.
+1. exact plain-language fictional-game classification from [Content Rules](CONTENT-RULES.md);
+2. spoiler-free manifest;
+3. current compact [Runtime Kernel](RUNTIME-KERNEL.md);
+4. sealed case-specific GM packet.
 
-The classification identifies the material as fictional game state and prohibits real-person investigation, dangerous operational instruction and safety evasion. It does not need to be recited to the player during onboarding.
+The runtime must not have to reconstruct shared behavior by reading the entire repository.
 
-## Canonical case folder
+## Case folder
 
-GitHub is the preferred home for the editable case source and evidence assets:
+Preferred V0 layout:
 
 ~~~text
 cases/DA-001-case-name/
-├── README.md
+├── README.md          optional note/source pointer
 ├── casefile.txt
-├── creator-notes.md
-├── evidence/
-│   ├── E-01.jpg
-│   ├── E-02.jpg
-│   └── E-03.jpg
-└── page/
-    └── index.html
+├── index.html         or page/index.html
+└── evidence/
+    ├── E-01.*
+    ├── E-02.*
+    └── E-03.*
 ~~~
 
-The player-facing page may be published with GitHub Pages. The player should receive a direct link rather than instructions for navigating branches or folders.
+The player receives a direct **PLAY CASE** link. They should not navigate GitHub folders.
 
 ## Manifest
 
-Every published case begins with compact spoiler-free metadata.
+Keep it compact and spoiler-free. Recommended fields:
 
 ~~~text
 CASE ID: DA-001
@@ -43,213 +44,116 @@ CREATOR: Name
 STATUS: Playtest
 FORMAT VERSION: DetectAIve 0.1
 MODE: Locked Mystery
+SETTING: Contemporary fictional city
 DIFFICULTY: Medium
 ESTIMATED TIME: 8–12 minutes
-EVIDENCE IMAGES: 3
-CANONICAL EVIDENCE: Pregenerated and creator-verified
+EVIDENCE ITEMS: 3
+CANONICAL EVIDENCE: Pregenerated/creator-supplied and verified
 PLAYER INTERFACE: Text + optional Read Aloud
 EVIDENCE DELIVERY: GitHub Pages
-VOICE DEBRIEF: Available
-VOICE INTERROGATION: None
+VOICE DEBRIEF: Available / None
+VOICE INTERROGATION: None / Experimental
 OFFICE COMPATIBILITY: Universal
-STRUCTURE: Standalone
-CONTENT: No gore
+CONTENT: Theft; no death
+GORE: None
 CHATGPT TESTING: Untested
 ~~~
 
-The case listing carries configuration so the runtime does not ask for it again.
+Do not ask the player to reconfigure fields already established here.
 
-## Required layers
+## Sealed GM packet
 
-### Runtime kernel
+The sealed packet contains immutable case-specific CANON:
 
-Compact instructions governing:
-
-- the Read Aloud tip;
-- recognition of the opening fictional-game classification;
-- one-question office setup;
-- hidden information;
-- natural-language play;
-- state changes;
-- evidence handling;
-- allowed improvisation;
-- resolution, failure and debrief behavior.
-
-Every release Casefile carries the runtime behavior it needs. The player does not paste a separate engine manual.
-
-### Sealed GM packet
-
-Contains the immutable CANON:
-
-- true explanation;
-- responsible parties;
-- victim status;
+- true explanation and responsible parties;
 - timeline;
-- motive;
-- means;
-- opportunity;
-- suspect knowledge;
-- genuine clues;
-- red herrings;
-- consequences;
-- endings.
+- motive, means and opportunity;
+- victim status if relevant;
+- suspect/witness knowledge and lies;
+- genuine clues and red-herring explanations;
+- evidence registry;
+- state transitions and breakpoints;
+- success and failure conditions;
+- hints;
+- debrief hooks / Player Moments.
 
-The first alpha successfully used a Base64-encoded GM capsule: ChatGPT decoded and understood the locked mystery. That validates the basic transport idea, but not yet cross-interface reliability or spoiler resistance. The exact stable representation remains subject to playtesting. Obfuscation is spoiler resistance, not security.
+Base64 worked as spoiler-resistant transport in Alpha A01. It is obfuscation, not security, and the stable representation remains subject to testing.
 
-### Player-facing opening
+Do not place creator-time image-generation prompts in the release packet for runtime execution.
 
-Contains only information legitimately available before play:
+## Evidence registry
 
-- premise;
-- office-compatible role;
-- initial location;
-- case-specific content warning;
-- first unlocked evidence or lead.
-
-### Evidence registry
-
-Each evidence item should define:
+Each evidence item should minimally define:
 
 ~~~text
 EVIDENCE ID:
 TITLE:
-SOURCE PATH:
-PLAYER URL:
-ASSET VERSION OR HASH:
+SOURCE PATH / PLAYER URL:
 UNLOCK CONDITION:
 CANONICAL CONTENTS:
 ACCEPTED OBSERVATIONS:
 PERMITTED DEDUCTIONS:
 MISLEADING APPEARANCES:
-DERIVED ASSETS:
 ACCESSIBILITY FALLBACK:
-DIRECT AI ANALYSIS: Optional / Supported / Not tested
-RUNTIME GENERATION: Prohibited for canonical evidence
 VERIFICATION STATUS:
+RUNTIME GENERATION: Prohibited for canonical evidence
 ~~~
 
-The canonical contents let ChatGPT judge the player's report without visually ingesting the image. The player studies the original asset on the case page.
+The player is the primary viewer. ChatGPT judges their report against the registry.
 
-If the player uploads the image, ChatGPT may discuss visible details, but image analysis must not overwrite the creator-verified registry or manufacture facts absent from CANON.
+Accepted observations are semantic, not passwords. Record likely paraphrases where they help, but if a player's report is too vague to establish the clue, ask a natural clarifying question rather than silently granting or denying it.
 
-Canonical evidence must already exist before the player starts. A generation prompt used during authoring belongs in creator notes or source files. Do not put it in the release capsule for ChatGPT to execute during play.
+If the player uploads an image, AI analysis may discuss visible details but cannot override creator-verified CANON.
 
-Pregenerated, creator-verified zooms or reconstructions may clarify captured information. They may not invent new information. A runtime-generated derivative cannot be required for a deduction.
+Derived evidence required for a deduction—crop, zoom, scan, comparison or reconstruction—must also exist and be verified before publication.
 
-### Clue registry
+## Suspect and witness packet
 
-Each clue has a function:
-
-- **REQUIRED** — needed for the intended solution;
-- **SUPPORTING** — strengthens a conclusion;
-- **OPTIONAL** — rewards unusual attention;
-- **RED HERRING** — misleading but honestly explainable;
-- **DECORATION** — atmospheric and non-evidentiary;
-- **ACCIDENTAL ARTIFACT** — a generation mistake explicitly declared noncanonical.
-
-Each required deduction must be supported by evidence the player can actually receive.
-
-### Suspect and witness packets
-
-Important NPCs define:
-
-- what they know;
-- what they believe;
-- what they claim;
-- what they hide;
-- what they lie about;
-- what they genuinely do not know;
-- evidence that changes their behavior;
-- contradiction threshold;
-- collapse condition;
-- post-collapse truth or action.
-
-Text interrogation is the V0 baseline. Voice performance is optional and may not change the underlying state.
-
-### State transitions
-
-The case identifies which discoveries or choices permit movement into interrogation, accusation, resolution, failure and optional follow-up states.
-
-The runtime must not begin a debrief while the investigation remains unresolved.
-
-### Player Moments
-
-Track a very small dynamic set:
-
-- `FIRST_USEFUL_OBSERVATION`;
-- `OPTIONAL_CLUE_FOUND`;
-- `MEMORABLE_WRONG_THEORY`;
-- `CONTRADICTION_EXPOSED`;
-- `DIFFICULT_DECISION`;
-- `FINAL_ACCUSATION`;
-- `MISSED_CLUE_WORTH_CALLBACK`.
-
-These are debrief hooks, not persistent psychological profiling.
-
-### Voice debrief card
-
-When offered, the V0 Voice Card should specify:
-
-- character;
-- scene purpose;
-- relevant Player Moments;
-- opening intent;
-- one question per turn;
-- stopping point;
-- allowed reactions after the player answers;
-- closing line or condition.
-
-Non-spoken control instructions remain separate from dialogue.
-
-Voice interrogation cards use the same structure but are experimental in V0.
-
-### Noncanonical image hooks
-
-A case may optionally offer runtime-generated cosmetic art:
+Important people define only what the runtime needs:
 
 ~~~text
-IMAGE HOOK ID:
-PURPOSE: Office / atmosphere / reward / souvenir
-UNLOCK CONDITION:
-PROMPT INPUTS:
-CANONICALITY: Noncanonical
-MUST NOT DEPICT OR ADD:
+IDENTITY / ROLE:
+KNOWS:
+BELIEVES:
+CLAIMS:
+HIDES:
+LIES ABOUT:
+DOES NOT KNOW:
+PRESSURE / CONTRADICTIONS:
+BREAKPOINT:
+AFTER BREAKPOINT:
 ~~~
 
-These hooks may use the office cast and Player Moments. They must not represent forensic evidence, introduce solution-relevant facts or retroactively alter the case registry.
+Dialogue wording is FLEX. Knowledge and breakpoint logic are CANON.
 
-### Failure packet
+## State and commitment
 
-A case distinguishes:
+The case defines which discoveries permit investigation, interrogation, accusation, resolution, failure and debrief transitions.
 
-- nonterminal consequences;
-- terminal failure triggers;
-- irreversible actions;
-- ambiguous commitments requiring clarification;
-- permitted failure-screen families;
-- custom failure lines or epilogues;
-- postmortem behavior.
+A theory is not automatically a formal accusation. Clarify only genuinely ambiguous commitment. Creative off-path play is not failure; rare terminal failure requires a case-consistent committed cause.
 
-The runtime may improvise presentation within these boundaries. It may not invent a terminal cause merely because a funny screen is available.
+## Player Moments
 
-See [Failure and Caseline System](FAILURE-AND-CASELINE.md).
+Track only a small dynamic set useful for specific debrief recognition, such as first useful observation, optional clue, memorable wrong theory, exposed contradiction, difficult decision and final accusation.
 
-### Resolution and debrief
+Do not store an uncontrolled biography.
 
-The case defines:
+## Voice
 
-- sufficient evidence for a correct accusation;
-- plausible incomplete outcomes;
-- consequences of error;
-- moral choice, if any;
-- epilogue variations;
-- debrief hooks;
-- optional continuation unlock.
+Text interrogation is the V0 baseline. Voice interrogation is case-specific and experimental.
+
+When a post-case Voice debrief is available, the case defines the character and debrief intent. The runtime uses actual Player Moments to create a compact portable handoff. The tested workflow is: copy the complete handoff, start Voice Mode, then paste/send that block once Voice is active. The debrief must also work in text.
+
+See [Voice and Interrogation](VOICE-AND-INTERROGATION.md).
+
+## Failure
+
+The packet distinguishes nonterminal consequences, irreversible actions, terminal triggers and ambiguous commitments. Terminal presentation is concise and non-graphic; `DESYNCHRONIZED FROM THE CASELINE` remains the preferred reality-breaking phrase.
+
+A failed run does not automatically reveal the solution or advertise a retry/retcon.
 
 ## Release rule
 
-The creator source may be extensive. The release Casefile must be obvious, versioned and compact.
+The creator source may be extensive. The release Casefile should remain compact, obvious and versioned.
 
-Do not place creator instructions, unused dialogue libraries, image-generation prompts or the full project specification inside the player's Casefile.
-
-Do not encode or remove the required fictional-game classification when compressing the release.
+Do not include unused dialogue libraries, rejected brainstorming, the full project manual or live canonical-evidence prompts. Do not encode or omit the required fictional-game classification.
