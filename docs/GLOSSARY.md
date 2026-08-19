@@ -28,9 +28,11 @@
 
 **Live Voice** — A conversational spoken-performance layer, used primarily for V0 post-case debriefs.
 
-**Canonical Evidence** — An immutable original evidence asset stored with the case.
+**Canonical Evidence** — An immutable original evidence asset generated and creator-verified before play, then stored and versioned with the case.
 
-**Derived Evidence** — A creator-approved crop, zoom, scan or reconstruction based on canonical evidence.
+**Derived Evidence** — A creator-approved crop, zoom, scan or reconstruction based on canonical evidence. If required for a deduction, it is also pregenerated and verified.
+
+**Runtime Cosmetic Art** — An image generated during play for office, atmosphere or reward purposes. It is noncanonical and cannot add clues or change the solution.
 
 **Evidence Registry** — The hidden list of evidence contents, meanings, accepted observations and unlock conditions.
 
@@ -49,6 +51,8 @@
 **Accidental Artifact** — A generation mistake declared noncanonical.
 
 **GM Packet** — Hidden case truth and runtime state.
+
+**Sealed GM Capsule** — An encoded GM Packet carried inside a Casefile. Base64 transport worked in the first alpha but is not yet the stable cross-interface standard.
 
 **Interrogation Packet** — An NPC's knowledge, beliefs, claims, lies and breakpoints.
 
@@ -83,4 +87,3 @@
 **Postmortem** — An optional explanation requested after failure. It does not automatically reveal the full solution.
 
 **Data Budget** — The reliability target limiting how much material enters one playable Casefile.
-
