@@ -55,6 +55,19 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - The hidden evidence registry lets ChatGPT judge those observations without visually ingesting every image.
 - Direct image upload and AI analysis remain optional enhancements.
 
+## 2026-08-19 — Alpha 1 image-generation boundary
+
+- A Base64-encoded sealed GM capsule successfully transported and revealed the canonical mystery to ChatGPT.
+- The same capsule also carried evidence-image prompts, but runtime generation repeatedly substituted visually salient office context for the intended forensic scene.
+- Correct prompt storage does not guarantee isolated prompt execution in the current image-generation environment.
+- Canonical evidence must be generated, inspected and locked before publication.
+- Governing rule: **If an image can change the solution, generate and verify it before play.**
+- Canonical evidence prompts remain in creator source and are not included merely for runtime execution.
+- Runtime-generated images default to noncanonical cosmetic art.
+- Safe runtime categories include office portraits, splash art, atmosphere, post-case rewards and souvenirs.
+- Any derived image required for a deduction must also be pregenerated and creator-verified.
+- Runtime canonical generation may return only as a future experimental option if genuinely isolated prompting becomes reliable.
+
 ## 2026-08-19 — Creator path
 
 - DetectAIve is both a playable format and an AI-assisted creator tool.
@@ -106,4 +119,3 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - First official Casefile and its ID.
 - Final evidence-page behavior after Android and iPhone testing.
 - Whether public releases also use GitHub Releases or only page/raw downloads.
-
