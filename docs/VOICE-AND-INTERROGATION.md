@@ -1,36 +1,40 @@
-# Voice and Interrogation Guide
+# Read Aloud, Voice and Interrogation Guide
 
-Voice and interrogation are related but separate systems.
+Read Aloud, Live Voice and interrogation are three different systems.
 
-An interrogation must work in text. Voice is an optional performance layer.
+V0 should not make the player learn them all at once.
 
-## Four content types
+## V0 channel model
 
-Keep these distinct:
+> **TEXT = game**
+>
+> **READ ALOUD = narration**
+>
+> **IMAGES = evidence**
+>
+> **VOICE = post-case reward**
 
-1. ordinary text narration;
-2. suspect or witness state;
-3. Voice performance material;
-4. non-spoken control instructions.
+Live Voice interrogation is experimental. Every interrogation must work completely in text.
 
-Do not place speakable stage directions such as WAIT, SMALL PAUSE, SMILES or LOOKS AWAY inside dialogue intended for Voice.
+## Read Aloud
 
-Some Voice systems will say them aloud.
+The runtime mentions Read Aloud in the first response:
 
-## Reliable Voice rhythm
+> *Tip: this game works well with Read Aloud. When evidence appears, pause and inspect it at your own pace.*
 
-Use conversation turns as control:
+That is enough. Do not explain the full interface or require setup.
 
-1. character speaks;
-2. character asks one question;
-3. response ends;
-4. player answers;
-5. character reacts naturally;
-6. the next turn continues.
+Narrative responses should:
 
-Short conversational exchanges are more reliable than long theatrical scripts containing several simulated pauses.
+- use readable paragraphs;
+- avoid enormous unbroken monologues;
+- stop at natural decision points;
+- end cleanly before the player studies an evidence image;
+- keep control syntax out of player-facing narration.
 
-## Interrogation packet
+Read Aloud is optional. The text remains the authoritative game transcript.
+
+## Text interrogation baseline
 
 An important suspect or witness should define:
 
@@ -53,57 +57,99 @@ AFTER BREAKPOINT:
 CANNOT REVEAL BEFORE:
 ~~~
 
-The character may improvise phrasing. They may not invent knowledge, reveal locked facts early or change the canonical timeline.
+The character may improvise phrasing and ordinary reactions. They may not invent knowledge, reveal locked facts early or change the canonical timeline.
 
-## Contradiction pressure
+A story should not collapse merely because the player says “I know you are lying.” Pressure comes from evidence, incompatible claims or a creator-defined combination.
 
-A story should not collapse merely because the player says “I know you are lying.”
+## Voice primarily follows resolution
 
-Pressure should come from evidence, incompatible claims or a creator-defined combination.
-
-A breakpoint might require:
-
-- proof the suspect knew the victim;
-- proof they were at the location;
-- a contradiction in their claimed time;
-- a personal object they cannot explain.
-
-The packet should define what changes after each discovery.
-
-## Manual Voice changes
-
-A case may suggest temporarily choosing a Voice appropriate to one major suspect or debrief character.
-
-This must remain:
-
-- optional;
-- rare;
-- clearly announced;
-- easy to return from;
-- unnecessary for solving the case.
-
-A five-minute case should not send the player through settings repeatedly.
-
-## Voice Cards
-
-A Voice Card should be small:
+After a successful case, the runtime may offer:
 
 ~~~text
-VOICE CARD: VC-01
+CASE CLOSED
+
+Someone is waiting back at the office.
+
+VOICE DEBRIEF AVAILABLE
+~~~
+
+Voice is an escalation in intimacy and presentation. It is not something the player must manage throughout the investigation.
+
+The debrief must also work in text. Interface availability, plan limits and device behavior may vary.
+
+## Voice debrief card
+
+A V0 Voice Card should remain small:
+
+~~~text
+VOICE CARD: VD-01
+CHARACTER: Office debrief character
+START WHEN: Case is RESOLVED
+PLAYER MOMENTS: Select two or three actual events
+OPENING INTENT: Private return to the office
+ASK: One genuine question about the investigation
+STOP: End the response and let the player answer
+AFTER ANSWER: React naturally using the recorded Player Moments
+CLOSE WHEN: One or two exchanges are complete
+~~~
+
+Specific recognition matters more than speech length.
+
+Weak:
+
+> Great work, Detective.
+
+Strong:
+
+> You noticed the chair had been put upright. Most people would have called the room less suspicious. You asked who had touched it.
+
+## Conversation turns are control
+
+Reliable performed rhythm:
+
+1. character speaks;
+2. character asks one question;
+3. response ends;
+4. player answers;
+5. character reacts;
+6. the next turn continues or closes.
+
+Do not place speakable directions such as `[WAIT]`, `SMALL PAUSE`, `SMILES` or `LOOKS AWAY` inside dialogue intended for performance. Some systems may say them aloud.
+
+Keep non-spoken instructions in the Voice Card and spoken words in dialogue fields.
+
+## Experimental Voice interrogation
+
+A creator may optionally test one major voiced interrogation. It must be:
+
+- clearly labeled experimental;
+- optional;
+- rare;
+- unnecessary for solving the case;
+- backed by the same locked interrogation packet used in text;
+- easy to leave without losing state.
+
+A short case should not ask the player to change voices or modes repeatedly.
+
+## Experimental interrogation Voice Card
+
+~~~text
+VOICE CARD: VI-01
 CHARACTER: Mara Venn
 SCENE: Primary interrogation
 START WHEN: Evidence E-03 is revealed
 OPENING INTENT: Guarded professionalism
 ASK: Why the player doubts her timeline
-STOP: End the response and wait
-AFTER ANSWER: React using the current interrogation state
+STOP: End the response and let the player answer
+AFTER ANSWER: React using current interrogation state
 EXIT WHEN: Breakpoint reached or player returns to text
 ~~~
 
-Dialogue examples may be included, but the runtime should respond naturally to the player's actual words.
+Dialogue examples may be included, but the runtime responds naturally to the player's actual words.
 
-## Debrief Voice
+## Portability rule
 
-A post-case Voice scene should reference Player Moments and ask at most one or two real questions.
+Voice performance may enrich a case but may never contain solution-critical information unavailable in text.
 
-It should feel like a conversation about the investigation, not a prerecorded victory speech.
+If Voice fails, is unavailable or is declined, the investigation and debrief continue in text without penalty.
+
