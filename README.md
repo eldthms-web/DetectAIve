@@ -4,25 +4,48 @@
 
 **What if a mystery was something you could simply paste into ChatGPT and play?**
 
-DetectAIve is an experiment in community-made detective games built for the AI people already use. There is no game client to download and no traditional dialogue tree to fight with.
+DetectAIve is a format for community-made detective games. There is no game client to download, no API bill and no dialogue tree to outguess.
 
-A creator makes a self-contained Casefile containing a fixed mystery, visual evidence, suspects, secrets, red herrings, interrogation rules and a real solution. You paste that Casefile into ChatGPT, and ChatGPT becomes the game master.
+A creator builds a fixed mystery with suspects, visual evidence, secrets, red herrings and a real solution. A player copies the Casefile into ChatGPT. ChatGPT becomes the game master, and the player investigates in ordinary language.
 
-Then you investigate normally.
+Ask to examine the chair. Compare two photographs. Question a witness about an inconsistency. Follow a completely different lead because something in the crime-scene image bothered you.
 
-Ask to examine the chair. Compare two photographs. Zoom in on a reflection. Question a witness about an inconsistency. Accuse a suspect of lying. Follow a completely different lead because something in the crime-scene image bothered you.
+**You say what you would actually do, and the mystery responds.**
 
-You do not have to guess which commands the designer anticipated. **You say what you would actually do, and the mystery responds.**
+## Play a case
+
+The intended V0 experience is:
+
+1. Find a case on Reddit or through a shared link.
+2. Select **PLAY CASE**.
+3. Select **COPY CASEFILE**.
+4. Paste it into ChatGPT.
+5. Read normally or use Read Aloud.
+6. Open numbered evidence images when instructed.
+7. Tell ChatGPT what you noticed and continue investigating.
+8. Solve the mystery and optionally return to the office for a debrief.
+
+The player should be investigating within roughly one minute. They should not need to understand repositories, prompts, evidence registries or runtime state.
+
+See [Play DetectAIve in Sixty Seconds](QUICKSTART.md).
 
 ## Who works in your office?
 
-Before the case begins, you may decide who is investigating alongside you.
+After the Casefile is pasted, ChatGPT asks one question:
 
-Use an original character. Bring a favorite fictional investigator. Ask ChatGPT to invent somebody. Build an entire strange detective office. Say **SURPRISE ME** and begin immediately. Or skip the cast completely and play the mystery alone.
+> **Who works in your office?**
 
-The office exists to give the investigation a recurring human frame. It may deliver hints, conduct interviews, disagree with your theories and return after the case for a debrief.
+Quick-start with an invented detective, build a custom office, ask for a surprise cast or play without a companion. Then the case begins.
 
-The mystery remains the game.
+The office gives the investigation a recurring human frame. Its characters may help, disagree, offer hints and return after the case for a debrief. They may not change the culprit, evidence or solution.
+
+## Study the evidence
+
+Canonical evidence images live with the case on GitHub and appear on a simple player-facing case page.
+
+When ChatGPT says **OPEN EVIDENCE E-02**, the player opens that image, studies it and reports what they noticed. The Casefile already contains the hidden evidence registry, so ChatGPT can judge the observation without having to re-analyze every image itself.
+
+Direct image upload and AI image analysis may still be offered as optional enhancements. They are not required for the normal V0 loop.
 
 ## A fair mystery
 
@@ -30,7 +53,7 @@ In a proper DetectAIve case, the culprit and evidence are fixed before play begi
 
 A persuasive theory does not become true because ChatGPT likes it. You can be clever. You can be wrong. You can miss optional evidence, accuse an innocent person, follow a false lead or notice something the creator expected almost nobody to catch.
 
-The route may change. The truth may not.
+**The route may change. The truth may not.**
 
 ## After the case
 
@@ -43,32 +66,61 @@ DetectAIve can remember a few specific Player Moments:
 - a difficult decision you made;
 - something another player might easily have missed.
 
-Those moments can shape an optional office debrief, Voice conversation, epilogue or reward image.
+Those moments shape an optional office debrief, Voice conversation, epilogue or reward image.
 
 Specific recognition is the reward. DetectAIve does not need affection meters, experience points or generic praise spam.
+
+## Make a case
+
+DetectAIve is also a creator system for people who do not know programming.
+
+Load the creator guide into your AI and say:
+
+> **Help me make a case.**
+
+The AI can help turn an idea into locked canon, suspects, timelines, interrogation logic, visual puzzles, evidence prompts, failure conditions and a portable Casefile. Conceptually, it is a very lightweight RPG Maker for mysteries.
+
+**The creator authors reality. The AI helps formalize it. The player authors the investigation.**
+
+See the [AI-Assisted Creator Guide](docs/CREATOR-GUIDE.md).
 
 ## Current scope
 
 DetectAIve is currently a **ChatGPT-first experimental format**.
 
-ChatGPT combines the capabilities the complete design currently uses: natural-language investigation, image understanding and generation, and optional live Voice conversations. Compatibility with other AI systems is not promised until it has been tested.
+The normal V0 interface is:
 
-We are deliberately **not building an application yet**. The experiment is whether one person can make a fair text-and-image Casefile, give it to another person, and have that person play it through ChatGPT.
+- **Text** for the game;
+- **Read Aloud** for optional narration;
+- **Images** for evidence;
+- **Voice** primarily for an optional earned post-case debrief.
 
-If that works, DetectAIve is not one detective game. It is a format ordinary people can use to make small detective games for one another.
+Live Voice interrogation remains experimental. Compatibility with other AI systems is not promised until tested.
 
-## Start here
+We are deliberately not building a dedicated application. The experiment is whether one person can make a fair text-and-image Casefile, give it to another person, and have that person play it through the AI they already use.
+
+## Project documents
+
+### Play
 
 - [Play in sixty seconds](QUICKSTART.md)
-- [Project architecture](docs/ARCHITECTURE.md)
+- [Runtime player onboarding](docs/PLAYER-ONBOARDING.md)
+- [Office and debrief system](docs/OFFICE-AND-DEBRIEF.md)
+- [Mobile-first case delivery](docs/MOBILE-DISTRIBUTION.md)
+
+### Create
+
+- [AI-assisted creator guide](docs/CREATOR-GUIDE.md)
 - [Draft Casefile format](docs/CASE-FORMAT.md)
 - [Visual evidence guide](docs/VISUAL-EVIDENCE.md)
-- [Voice and interrogation guide](docs/VOICE-AND-INTERROGATION.md)
-- [Office and debrief system](docs/OFFICE-AND-DEBRIEF.md)
-- [Community and distribution plan](docs/COMMUNITY-PLAN.md)
-- [Mobile-first case delivery](docs/MOBILE-DISTRIBUTION.md)
+- [Read Aloud, Voice and interrogation guide](docs/VOICE-AND-INTERROGATION.md)
 - [Failure and Caseline system](docs/FAILURE-AND-CASELINE.md)
 - [Data and context budgets](docs/DATA-BUDGETS.md)
+
+### Project
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Community and distribution plan](docs/COMMUNITY-PLAN.md)
 - [Terminology](docs/GLOSSARY.md)
 - [Roadmap](ROADMAP.md)
 - [Decision log](DECISIONS.md)
@@ -83,4 +135,5 @@ Professional knowledge is welcome. Internet vigilantism is not.
 
 ---
 
-**Make a case. Share it. Or paste somebody else's Casefile into ChatGPT and see whether you are as observant as you think you are.**
+**Make authorship powerful. Make play effortless.**
+
