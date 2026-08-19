@@ -112,6 +112,8 @@ A subreddit case post should contain:
 
 The complete canonical package lives in GitHub.
 
+Published Casefiles must include the required fictional-game classification and comply with the [Creator Content Rules](CONTENT-RULES.md). Real-person investigations, private-person evidence and disguised active cases are not community content.
+
 ## Spoiler infrastructure
 
 - Titles never contain solutions.
@@ -135,4 +137,3 @@ Discord may help live collaboration but is a poor canonical archive and discover
 Itch.io may become a useful mirror for polished downloadable packages, but it should not define the format.
 
 A dedicated web application is explicitly deferred.
-
