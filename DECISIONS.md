@@ -8,7 +8,7 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - The core promise is **Paste a case. Solve it with ChatGPT.**
 - The earlier **Visual Detective** document is a prototype and historical source, not the current public specification.
 - The GitHub repository is the canonical project source.
-- The original Gist will remain available and will also be archived in this repository.
+- The original Gist remains available and is archived in this repository.
 
 ## 2026-08-19 — Product scope
 
@@ -16,16 +16,24 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - No dedicated application will be built until the file format proves itself.
 - DetectAIve v0.x targets ChatGPT.
 - Other-model compatibility is untested and must not be advertised as working.
-- Voice is an optional interaction layer, not a requirement for every scene.
 - Cases are overwhelmingly fictional and must not be used for real-world accusations or vigilantism.
 
 ## 2026-08-19 — Player experience
 
 - The public introduction and in-game onboarding are separate.
 - The onboarding frame is **Who works in your office?**
-- Players may quick-start, build an office, use a supplied character, ask for a surprise cast or play without office characters.
+- The first screen offers Quick Start, Build My Office, No Companion and Surprise Me.
+- Naming or uploading a character belongs under Build My Office rather than the first screen.
+- The player answers once unless they request deeper customization.
 - The mystery remains primary; companion-style interaction emerges from shared activity.
-- Office cast and tone may change presentation but may not rewrite canonical case truth.
+- Office cast and tone may change presentation but may not rewrite canonical truth.
+
+## 2026-08-19 — V0 interaction model
+
+- V0 uses text for the game, optional Read Aloud for narration, separately viewed images for evidence and Live Voice primarily for the post-case reward.
+- The Read Aloud tip appears in the first runtime response and remains brief.
+- Live Voice interrogation is experimental rather than part of the normal launch flow.
+- A case remains complete when Voice is unavailable or declined.
 
 ## 2026-08-19 — Mystery integrity
 
@@ -34,7 +42,27 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - The route may change. The truth may not.
 - Runtime-generated procedural cases are not the primary public format. The prototype generator may later survive as an optional Quick Case or creator tool.
 - Wrong deductions should usually create story, consequences or detours.
+- The AI may improvise dialogue, transitions and mundane connective detail inside CANON.
 - Evidence images used for deductions require creator verification.
+
+## 2026-08-19 — Evidence architecture
+
+- GitHub is the preferred home for canonical Casefiles and evidence assets.
+- Keep a case's logic, images and version history together.
+- GitHub Pages provides the preferred player-facing case and evidence page.
+- External image hosts are fallbacks rather than default infrastructure.
+- The V0 player studies evidence separately and reports observations to ChatGPT.
+- The hidden evidence registry lets ChatGPT judge those observations without visually ingesting every image.
+- Direct image upload and AI analysis remain optional enhancements.
+
+## 2026-08-19 — Creator path
+
+- DetectAIve is both a playable format and an AI-assisted creator tool.
+- The creator path has an obvious **MAKE A CASE** entrance.
+- The creator may load extensive workshop documentation into an AI.
+- The player never pastes the full repository.
+- The creator authors reality, the AI helps formalize it and the player authors the investigation.
+- The design may be described as an extremely lightweight RPG Maker for mysteries.
 
 ## 2026-08-19 — Debrief philosophy
 
@@ -42,6 +70,7 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - Track a tiny set of Player Moments rather than the entire conversation.
 - Do not use generic praise spam, hearts, affection meters or compulsory romance.
 - Professional respect, friendship, mentorship, rivalry, flirtation and comedy may all use the same debrief system.
+- In V0, Live Voice is primarily an earned debrief layer after resolution.
 
 ## 2026-08-19 — Failure and Caseline
 
@@ -61,18 +90,20 @@ This file records accepted project decisions. Raw brainstorming belongs in notes
 - A Casefile above 15,000 tokens requires deliberate compression review.
 - Large trope libraries, creator commentary and archives remain outside the playable payload.
 
-## Provisional distribution direction
+## 2026-08-19 — Distribution
 
-- GitHub is the source of truth and version archive.
-- A subreddit is the likely discovery, play-sharing and community layer.
-- A lightweight catalog website may be added later.
-- This becomes final only after the first playable Casefile reveals the real distribution friction.
+- Reddit is the likely discovery and community layer.
+- GitHub is the canonical archive for project and case assets.
+- GitHub Pages is the preferred free mobile-friendly player handoff.
+- The normal route is **Reddit → Play Case → Copy Casefile → ChatGPT**.
+- A larger searchable catalog remains later work.
 
 ## Unresolved decisions
 
 - Exact sealed-GM-packet representation.
-- Exact evidence-image delivery method.
 - Repository license.
 - Subreddit name and launch rules.
 - First official Casefile and its ID.
-- Whether the first public release uses GitHub Releases, raw files or both.
+- Final evidence-page behavior after Android and iPhone testing.
+- Whether public releases also use GitHub Releases or only page/raw downloads.
+
